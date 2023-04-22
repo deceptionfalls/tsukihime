@@ -1,4 +1,5 @@
 # Dotfiles
+![Preview of the setup](Pictures/Screenshots/setup.png)
 
 ## What is it?
 
