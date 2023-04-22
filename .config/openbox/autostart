@@ -1,0 +1,24 @@
+#kill all if already running
+killall picom
+
+#restore wallpaper
+nitrogen --restore
+
+## Launch Polybar
+bash ~/.config/polybar/launch.sh --blocks
+
+## Start Compositing Manager
+exec picom &
+
+## Thunar Daemon
+exec thunar --daemon &
+
+## xfce4-settings daemon
+xfsettingsd &
+
+## Enable power management
+xfce4-power-manager &
+
+##Autostart Emacs Daemon
+usr/bin/emacs --daemon
+
