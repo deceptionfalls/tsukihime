@@ -1,0 +1,98 @@
+*{
+    font-family: "Iosevka Nerd Font";
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+:root{
+    --base: #24273a;
+    --mantle: #1e2030;
+    --surface0: #363a4f;
+    --surface1: #494d64;
+    --surface2: #5b6078;
+    --text: #cad3f5;
+    --mauve: #c6a0f6;
+    --lavender: #b7bdf8;
+    --blue: #8aadf4;
+}
+
+body{
+    background-color: var(--base);
+    text-align: center;
+}
+
+img{
+    width: 5%;
+    height: auto;
+    margin-top: 10%;
+    clip-path: circle(50% at 50% 50%);
+}
+
+h1{
+    color: var(--text);
+}
+
+h2{
+    color: var(--surface1)
+}
+
+h3{
+    color: var(--surface0);
+    width: auto;
+    height: 50%;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    background: var(--mauve);
+}
+
+h1, h2{
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.links{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    grid-row: 4;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 15%;
+    height: auto;
+    outline-color: var(--mantle);
+    background-color: var(--mantle);
+    padding: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    line-break: auto;
+}
+
+a{
+    color: var(--surface2);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--text);
+    cursor: pointer;
+}
+
+footer{
+    color: var(--surface2);
+}
+
+footer a:hover{
+    color: var(--mauve);
+}
