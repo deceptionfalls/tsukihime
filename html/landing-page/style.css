@@ -8,6 +8,10 @@
     user-select: none;
 }
 
+* :focus{
+    outline: none;
+}
+
 :root{
     --base: #24273a;
     --mantle: #1e2030;
@@ -86,7 +90,13 @@ a{
 
 a:hover{
     color: var(--text);
+    font-weight: bold;
     cursor: pointer;
+}
+
+a:focus{
+    color: var(--text);
+    font-weight: bold;
 }
 
 footer{
@@ -95,4 +105,31 @@ footer{
 
 footer a:hover{
     color: var(--mauve);
+}
+
+form {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+form > input[type="text"] {
+  height: 30px;
+  width: 780px;
+  font-size: 20px;
+  color: var(--surface2);
+  background-color: var(--mantle);
+  padding-left: 13px;
+  margin: 15px;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  border: 5px solid var(--mantle);
+  vertical-align: top;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }

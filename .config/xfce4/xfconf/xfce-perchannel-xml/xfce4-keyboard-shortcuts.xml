@@ -10,7 +10,7 @@
       <property name="&lt;Alt&gt;F3" type="empty">
         <property name="startup-notify" type="empty"/>
       </property>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value=""/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="empty"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="empty"/>
       <property name="XF86Display" type="empty"/>
