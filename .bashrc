@@ -67,11 +67,13 @@ ex ()
 
 
 ##ALIASES##
-alias ..='cd ..'
-alias remove='sudo pacman -R'
-alias mgba='./Downloads/mGBA-0.10.1-appimage-x64.appimage'
-alias spot='python ~/onthespot/__init__.py'
-alias emacs='emacsclient -c -a 'emacs''
+
+alias ..='cd ..'								# go to parent
+alias remove='sudo pacman -R'							# remove packages
+# alias mgba='./Downloads/mGBA-0.10.1-appimage-x64.appimage'			# start mgba
+alias spot='python ~/onthespot/__init__.py'					# start onthespot
+alias emacs='emacsclient -c -a 'emacs''						# start emacs as emacsclient
+alias campos='sudo nmcli dev wifi connect Campos password heleninha2019' 	# connect to local wifi
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -101,11 +103,6 @@ alias tb="nc termbin.com 9999"
 # the terminal rickroll
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
-### RANDOM COLOR SCRIPT ###
-# Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
-# Or install it from the Arch User Repository: shell-color-scripts
-colorscript random
-
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
@@ -124,6 +121,11 @@ alias rm='rm -i'
 
 # root privileges
 alias doas="doas --"
+
+### RANDOM COLOR SCRIPT ###
+# Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
+# Or install it from the Arch User Repository: shell-color-scripts
+colorscript random
 
 # navigation
 up () {

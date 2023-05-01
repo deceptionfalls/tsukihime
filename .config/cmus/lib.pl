@@ -83,6 +83,17 @@
 /home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/08. Mother I Sober.mp3
 /home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/09. Mirror.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2023] False Swipe/Kill Bill The Rapper - False Swipe - False Swipe.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - WARNING.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - Polybius.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - False Swipe.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - zzz.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - Wails.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - Lets Bounce.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - Peel.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - Visions.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - ALL DUNGEONS NO DOORS.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - Scales.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - NURSING HOMES TERRIFY ME.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2021] Snowglobe Theory/Kill Bill The Rapper - Snowglobe Theory - Glass.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2021] Snowglobe Theory/Kill Bill The Rapper - Snowglobe Theory - Cigarettes.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2021] Snowglobe Theory/Kill Bill The Rapper - Snowglobe Theory - A While.mp3
@@ -93,6 +104,8 @@
 /home/tsukki/Music/Kill Bill The Rapper/[2021] Snowglobe Theory/Kill Bill The Rapper - Snowglobe Theory - ib.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2021] Snowglobe Theory/Kill Bill The Rapper - Snowglobe Theory - SPACEMAN.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2021] Snowglobe Theory/Kill Bill The Rapper - Snowglobe Theory - Poltergeist (The Boy Who Broke The Glass).mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - Simple.mp3
+/home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - Take It and Run.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2021] Snowglobe Theory/Kill Bill The Rapper - Snowglobe Theory - DoNotDisturb.mp3
 /home/tsukki/Music/MAC MILLER - Swimming (2018) Mp3 (320kbps) [Hunter]/MAC MILLER - Swimming (2018)/01. Come Back to Earth.mp3
 /home/tsukki/Music/MAC MILLER - Swimming (2018) Mp3 (320kbps) [Hunter]/MAC MILLER - Swimming (2018)/02. Hurt Feelings.mp3
@@ -107,6 +120,13 @@
 /home/tsukki/Music/MAC MILLER - Swimming (2018) Mp3 (320kbps) [Hunter]/MAC MILLER - Swimming (2018)/11. Jet Fuel.mp3
 /home/tsukki/Music/MAC MILLER - Swimming (2018) Mp3 (320kbps) [Hunter]/MAC MILLER - Swimming (2018)/12. 2009.mp3
 /home/tsukki/Music/MAC MILLER - Swimming (2018) Mp3 (320kbps) [Hunter]/MAC MILLER - Swimming (2018)/13. So It Goes.mp3
+/home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Me Never.mp3
+/home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Prosthetic Self-Love.mp3
+/home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Dead End.mp3
+/home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Dandelions.mp3
+/home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Channel F.mp3
+/home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - To My Future Self.mp3
+/home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Molasses.mp3
 /home/tsukki/Music/Travis Scott - ASTROWORLD (2018) [FLAC] [Hunter]/Travis Scott - ASTROWORLD (2018) [FLAC]/01. STARGAZING.flac
 /home/tsukki/Music/Travis Scott - ASTROWORLD (2018) [FLAC] [Hunter]/Travis Scott - ASTROWORLD (2018) [FLAC]/02. CAROUSEL.flac
 /home/tsukki/Music/Travis Scott - ASTROWORLD (2018) [FLAC] [Hunter]/Travis Scott - ASTROWORLD (2018) [FLAC]/03. SICKO MODE.flac

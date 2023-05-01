@@ -5,9 +5,9 @@ last_extension=png
 screenshot_dir=file:/home/tsukki/Pictures/Screenshots
 enable_imgur_upload=true
 show_in_folder=false
-action=2
+action=1
 delay=0
-region=2
+region=1
 show_mouse=1
 show_border=1
 
