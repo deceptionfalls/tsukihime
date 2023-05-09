@@ -7,6 +7,7 @@
 /home/tsukki/Music/Airospace/[2021] AZALEA/Airospace - AZALEA - ALABAMA AVE SE.mp3
 /home/tsukki/Music/Airospace/[2021] AZALEA/Airospace - AZALEA - GODSPEED YOU BLACK EMPEROR, Pt. 1.mp3
 /home/tsukki/Music/Airospace/[2021] AZALEA/Airospace - AZALEA - CRYATNITE.mp3
+/home/tsukki/Music/Airospace/[2019] Sorry to Bother You/Airospace - Sorry to Bother You - Sorry to Bother You.mp3
 /home/tsukki/Music/Denzel Curry - Melt My Eyez See Your Future (2022) [24 Bit Hi-Res] FLAC [PMEDIA] ⭐️/01. Melt Session #1.flac
 /home/tsukki/Music/Denzel Curry - Melt My Eyez See Your Future (2022) [24 Bit Hi-Res] FLAC [PMEDIA] ⭐️/02. Walkin.flac
 /home/tsukki/Music/Denzel Curry - Melt My Eyez See Your Future (2022) [24 Bit Hi-Res] FLAC [PMEDIA] ⭐️/03. Worst Comes To Worst.flac
@@ -21,6 +22,7 @@
 /home/tsukki/Music/Denzel Curry - Melt My Eyez See Your Future (2022) [24 Bit Hi-Res] FLAC [PMEDIA] ⭐️/12. Sanjuro.flac
 /home/tsukki/Music/Denzel Curry - Melt My Eyez See Your Future (2022) [24 Bit Hi-Res] FLAC [PMEDIA] ⭐️/13. Zatoichi.flac
 /home/tsukki/Music/Denzel Curry - Melt My Eyez See Your Future (2022) [24 Bit Hi-Res] FLAC [PMEDIA] ⭐️/14. The Ills.flac
+/home/tsukki/Music/Elijah Who/[2017] Gentle Boy/Elijah Who - Gentle Boy - my new love.mp3
 /home/tsukki/Music/exociety/[2022] deception falls/exociety - deception falls - The Lodge.mp3
 /home/tsukki/Music/exociety/[2022] deception falls/exociety - deception falls - Live From The Graveyard Soil.mp3
 /home/tsukki/Music/exociety/[2022] deception falls/exociety - deception falls - Good Grief (Hows Your Little Rap Thing Going).mp3
@@ -50,6 +52,8 @@
 /home/tsukki/Music/Frank Ocean - Blonde (2016)/15 Seigfried.mp3
 /home/tsukki/Music/Frank Ocean - Blonde (2016)/16 Godspeed.mp3
 /home/tsukki/Music/Frank Ocean - Blonde (2016)/17 Futura Free.mp3
+/home/tsukki/Music/J. Cole/[2016] 4 Your Eyez Only/J. Cole - 4 Your Eyez Only - Ville Mentality.mp3
+/home/tsukki/Music/Joji/[2018] BALLADS 1/Joji - BALLADS 1 - TEST DRIVE.mp3
 /home/tsukki/Music/Kendrick Lamar - DAMN. (2017) FLAC/Kendrick Lamar - DAMN. (2017)/1 BLOOD..flac
 /home/tsukki/Music/Kendrick Lamar - DAMN. (2017) FLAC/Kendrick Lamar - DAMN. (2017)/2 DNA..flac
 /home/tsukki/Music/Kendrick Lamar - DAMN. (2017) FLAC/Kendrick Lamar - DAMN. (2017)/3 YAH..flac
@@ -82,6 +86,20 @@
 /home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/07. Mr. Morale.mp3
 /home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/08. Mother I Sober.mp3
 /home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/09. Mirror.mp3
+/home/tsukki/Music/Kero Kero Bonito/[2014] Flamingo/Kero Kero Bonito - Flamingo - Flamingo.mp3
+/home/tsukki/Music/khai dreams/[2017] Summer Is Like a Dream/khai dreams - Summer Is Like a Dream - Daydreamer.mp3
+/home/tsukki/Music/khai dreams/[2017] Summer Is Like a Dream/khai dreams - Summer Is Like a Dream - Drifting Away.mp3
+/home/tsukki/Music/khai dreams/[2017] Summer Is Like a Dream/khai dreams - Summer Is Like a Dream - Do You Wonder.mp3
+/home/tsukki/Music/khai dreams/[2017] Summer Is Like a Dream/khai dreams - Summer Is Like a Dream - Fantasy.mp3
+/home/tsukki/Music/khai dreams/[2017] Summer Is Like a Dream/khai dreams - Summer Is Like a Dream - Summer Is Like a Dream.mp3
+/home/tsukki/Music/khai dreams/[2018] Nice Colors/khai dreams - Nice Colors - All I Need.mp3
+/home/tsukki/Music/khai dreams/[2018] Nice Colors/khai dreams - Nice Colors - Find My Way.mp3
+/home/tsukki/Music/khai dreams/[2018] Nice Colors/khai dreams - Nice Colors - Travels.mp3
+/home/tsukki/Music/khai dreams/[2018] Nice Colors/khai dreams - Nice Colors - Sunshine.mp3
+/home/tsukki/Music/khai dreams/[2018] Nice Colors/khai dreams - Nice Colors - Nice Colors.mp3
+/home/tsukki/Music/khai dreams/[2018] Nice Colors/khai dreams - Nice Colors - Questions.mp3
+/home/tsukki/Music/khai dreams/[2018] Nice Colors/khai dreams - Nice Colors - Spacey.mp3
+/home/tsukki/Music/khai dreams/[2018] Come True/khai dreams - Come True - Come True.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2023] False Swipe/Kill Bill The Rapper - False Swipe - False Swipe.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - WARNING.mp3
 /home/tsukki/Music/Kill Bill The Rapper/[2023] FULLMETAL KAIJU/Kill Bill The Rapper - FULLMETAL KAIJU - Polybius.mp3
@@ -120,13 +138,47 @@
 /home/tsukki/Music/MAC MILLER - Swimming (2018) Mp3 (320kbps) [Hunter]/MAC MILLER - Swimming (2018)/11. Jet Fuel.mp3
 /home/tsukki/Music/MAC MILLER - Swimming (2018) Mp3 (320kbps) [Hunter]/MAC MILLER - Swimming (2018)/12. 2009.mp3
 /home/tsukki/Music/MAC MILLER - Swimming (2018) Mp3 (320kbps) [Hunter]/MAC MILLER - Swimming (2018)/13. So It Goes.mp3
+/home/tsukki/Music/Oliver Tree/[2017] All I Got/Oliver Tree - All I Got - All I Got.mp3
+/home/tsukki/Music/Oliver Tree/[2020] Ugly is Beautiful/Oliver Tree - Ugly is Beautiful - Alien Boy.mp3
 /home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Me Never.mp3
 /home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Prosthetic Self-Love.mp3
 /home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Dead End.mp3
 /home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Dandelions.mp3
 /home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Channel F.mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - When I Am Successful Imma Buy a Neo Geo.mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - Lovedrug (Off That).mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - Sleeptalking.mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - Saffron.mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - Dirge.mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - Fair One.mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - Lil Empathy.mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - Put It Down.mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - Now You Dont.mp3
+/home/tsukki/Music/Rav/[2019] New Moon/Rav - New Moon - Passionfruit.mp3
+/home/tsukki/Music/Rav/[2020] SKIN/Rav - SKIN - Worth.mp3
+/home/tsukki/Music/Rav/[2020] SKIN/Rav - SKIN - down.exe.mp3
+/home/tsukki/Music/Rav/[2020] SKIN/Rav - SKIN - Celadon.mp3
+/home/tsukki/Music/Rav/[2020] SKIN/Rav - SKIN - Through the Fog.mp3
+/home/tsukki/Music/Rav/[2020] SKIN/Rav - SKIN - Halve-Life.mp3
+/home/tsukki/Music/Rav/[2020] SKIN/Rav - SKIN - Breathing Underwater for Dummies.mp3
+/home/tsukki/Music/Rav/[2020] SKIN/Rav - SKIN - Belong.mp3
 /home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - To My Future Self.mp3
 /home/tsukki/Music/Rav/[2020] Im on to Me/Rav - Im on to Me - Molasses.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Stargazing.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Over the Influence.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Here We Go Again.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - The Shining.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Chip Chrome.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Pretty Boy.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Lost in Translation.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Devils Advocate.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Hell or High Water.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Cherry Flavoured.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - The Mono-Tones.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - BooHoo.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Silver Lining.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Tobacco Sunburst.mp3
+/home/tsukki/Music/The Neighbourhood/[2020] Chip Chrome & The Mono-Tones (Deluxe)/The Neighbourhood - Chip Chrome & The Mono-Tones (Deluxe) - Middle of Somewhere.mp3
 /home/tsukki/Music/Travis Scott - ASTROWORLD (2018) [FLAC] [Hunter]/Travis Scott - ASTROWORLD (2018) [FLAC]/01. STARGAZING.flac
 /home/tsukki/Music/Travis Scott - ASTROWORLD (2018) [FLAC] [Hunter]/Travis Scott - ASTROWORLD (2018) [FLAC]/02. CAROUSEL.flac
 /home/tsukki/Music/Travis Scott - ASTROWORLD (2018) [FLAC] [Hunter]/Travis Scott - ASTROWORLD (2018) [FLAC]/03. SICKO MODE.flac

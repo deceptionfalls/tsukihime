@@ -14,5 +14,6 @@ configuration{
     sidebar-mode: true;
 }
 
-@theme "catppuccin-mocha"
+//@theme "catppuccin-mocha"
 
+@theme "/home/tsukki/.local/share/rofi/themes/catppuccin-macchiato.rasi"
