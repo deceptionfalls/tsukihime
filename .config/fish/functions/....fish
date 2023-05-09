@@ -1,4 +1,4 @@
-function ... --description 'alias ...=cd ...'
-  cd ... $argv
+function ... --wraps='cd ../..' --description 'alias ...=cd ../..'
+  cd ../.. $argv
         
 end
