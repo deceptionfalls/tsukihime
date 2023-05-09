@@ -8,13 +8,28 @@ set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
+# sudo apt install youtube-dl
+# youtube-dl
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+
+# Neovim
+alias vim="nvim"
+
 ### EXPORTS
 export PATH="~/.config/emacs/bin:$PATH"
 export TERM="xterm-256color"                      # getting proper colors
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 export TERM="xterm-256color"                      # getting proper colors
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
-export ALTERNATE_EDITOR=""                        # setting for emacsclient
+export ALTERNATE_EDITOR="emacs"                   # setting for emacsclient
 export EDITOR="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal
 export VISUAL="emacsclient -c -a emacs"           # $VISUAL use Emacs in GUI mode
 
@@ -70,10 +85,9 @@ ex ()
 
 alias ..='cd ..'								# go to parent
 alias remove='sudo pacman -R'							# remove packages
-# alias mgba='./Downloads/mGBA-0.10.1-appimage-x64.appimage'			# start mgba
+alias mgba='./Downloads/mGBA-0.10.1-appimage-x64.appimage'			# start mgba
 alias spot='python ~/onthespot/__init__.py'					# start onthespot
 alias emacs='emacsclient -c -a 'emacs''						# start emacs as emacsclient
-alias campos='sudo nmcli dev wifi connect Campos password heleninha2019' 	# connect to local wifi
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -114,6 +128,12 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+alias ls='exa -al --color=always --group-directories-first --icons' # my preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.='exa -a | egrep "^\."'
+
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
@@ -147,5 +167,7 @@ up () {
   fi
 }
 
-
-
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"

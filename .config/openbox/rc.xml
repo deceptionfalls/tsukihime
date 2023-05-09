@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
-  
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
   </resistance>
-  
   <focus>
     <focusNew>yes</focusNew>
     <!-- always try to focus new windows when they appear. other rules do
@@ -24,7 +22,6 @@
     <!-- when followMouse is enabled, and a window is given focus by moving the
        mouse into it, also raise the window -->
   </focus>
-  
   <placement>
     <policy>Smart</policy>
     <!-- 'Smart' or 'UnderMouse' -->
@@ -42,7 +39,6 @@
        following: 'Mouse' - where the mouse is, or
                   'Active' - where the active window is -->
   </placement>
-  
   <theme>
     <name>Catppuccin-Macchiato</name>
     <titleLayout>NLIMC</titleLayout>
@@ -56,7 +52,7 @@
       S: shade (roll up/down)
       D: omnipresent (on all desktops).
   -->
-    <keepBorder>yes</keepBorder>
+    <keepBorder>no</keepBorder>
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>Noto Sans</name>
@@ -113,7 +109,6 @@
       <!-- 'italic' or 'normal' -->
     </font>
   </theme>
-  
   <desktops>
     <!-- this stuff is only used at startup, pagers allow you to change them
        during a session
@@ -455,8 +450,8 @@
       </action>
     </keybind>
     <keybind key="W-Tab">
-		<action name="ToggleDecorations"/>
-	</keybind>
+      <action name="ToggleDecorations"/>
+    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-e">
       <action name="Execute">
@@ -506,7 +501,7 @@
     </keybind>
     <keybind key="W-1">
       <action name="Execute">
-          <name>Rofi</name>
+        <name>Rofi</name>
         <command>rofi -show drun</command>
       </action>
     </keybind>
@@ -524,19 +519,19 @@
         <decor>no</decor>
       </action>
     </keybind>
-       <keybind key="W-S-O">
+    <keybind key="W-S-O">
       <action name="Execute">
         <name>reconfig openbox</name>
         <command>openbox --reconfigure</command>
       </action>
     </keybind>
-     <keybind key="Scroll_Lock">
+    <keybind key="Scroll_Lock">
       <action name="Execute">
         <name>betterlockscreen</name>
         <command>betterlockscreen -l</command>
       </action>
     </keybind>
-     <keybind key="W-q">
+    <keybind key="W-q">
       <action name="Execute">
         <name>qutebrowser</name>
         <command>qutebrowser</command>
