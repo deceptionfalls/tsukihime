@@ -1,14 +1,9 @@
-#
-# ~/.bashrc
-#
-
 ### SET VI MODE ###
 # Comment this line out to enable default emacs-like bindings
 set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
-# sudo apt install youtube-dl
 # youtube-dl
 alias yta-aac="youtube-dl --extract-audio --audio-format aac "
 alias yta-best="youtube-dl --extract-audio --audio-format best "
@@ -46,8 +41,6 @@ esac
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls -lah --color=auto'
-alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 PS1='\[\033[1;35m\]\u\[\033[1;1m\]@\[\033[1;35m\]\h:\[\033[1;35m\]\w\[\033[1;35m\]\$\[\033[0m\] '
 
@@ -80,14 +73,12 @@ ex ()
   fi
 }
 
-
 ##ALIASES##
 
-alias ..='cd ..'								# go to parent
-alias remove='sudo pacman -R'							# remove packages
-alias mgba='./Downloads/mGBA-0.10.1-appimage-x64.appimage'			# start mgba
-alias spot='python ~/onthespot/__init__.py'					# start onthespot
-alias emacs='emacsclient -c -a 'emacs''						# start emacs as emacsclient
+alias ..='cd ..'                                  # go to parent
+alias remove='sudo pacman -R'                     # remove packages
+alias spot='python ~/onthespot/__init__.py'       # start onthespot
+alias emacs='emacsclient -c -a 'emacs''           # start emacs as emacsclient
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -110,9 +101,6 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # bare git repo alias for dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
-
-# termbin
-alias tb="nc termbin.com 9999"
 
 # the terminal rickroll
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
@@ -167,7 +155,11 @@ up () {
   fi
 }
 
+# colorize fzf
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+
+# initialize starship
+eval "$(starship init bash)"
