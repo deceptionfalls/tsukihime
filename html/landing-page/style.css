@@ -1,3 +1,5 @@
+/* ROOT STUFF */
+
 *{
     font-family: "Iosevka Nerd Font";
     -webkit-touch-callout: none;
@@ -8,10 +10,12 @@
     user-select: none;
 }
 
-* :focus{
+/* This function so that you can't select text present in the page. */
+* :focus{ 
     outline: none;
 }
 
+/* Colorscheme, I've used Catppuccin-Macchiato in this one */
 :root{
     --base: #24273a;
     --mantle: #1e2030;
@@ -31,11 +35,14 @@
     --flamingo: #f0c6c6;
 }
 
+/* MAIN STUFF */
+
 body{
     background-color: var(--base);
     text-align: center;
 }
 
+/* Our profile pic setup */
 img{
     width: 5%;
     height: auto;
@@ -51,6 +58,7 @@ h2{
     color: var(--surface1)
 }
 
+/* This regulates the h3's font and the block background it uses */
 h3{
     color: var(--surface0);
     width: auto;
@@ -63,11 +71,29 @@ h3{
     font-size: 20px;
 }
 
+/* The background color of each list's header background */
+#list-1 {
+    background-color: var(--red);
+}
+
+#list-2 {
+    background-color: var(--blue);
+}
+
+#list-3 {
+    background-color: var(--green);
+}
+
+#list-4 {
+    background-color: var(--mauve);
+}
+
 h1, h2{
     margin-bottom: 10px;
     padding: 0;
 }
 
+/* This regulates the links */
 .links{
     display:flex;
     flex-direction: row;
@@ -75,6 +101,7 @@ h1, h2{
     grid-row: 4;
 }
 
+/* This regulates the unordered lists in which the links are located */
 ul{
     list-style: none;
     display: flex;
@@ -92,20 +119,17 @@ ul{
     line-break: auto;
 }
 
+/* Color of each individual link */
 a{
     color: var(--surface2);
     text-decoration: none;
 }
 
-a:hover{
+/* This makes it so that the links turn bold when hovered or focused with TAB*/
+a:hover, a:focus{
     color: var(--text);
     font-weight: bold;
     cursor: pointer;
-}
-
-a:focus{
-    color: var(--text);
-    font-weight: bold;
 }
 
 footer{
@@ -116,11 +140,13 @@ footer a:hover{
     color: var(--mauve);
 }
 
+/* Regulates our search bar */
 form {
   display: inline-block;
   vertical-align: middle;
 }
 
+/* Search bar style */
 form > input[type="text"] {
   height: 4vh;
   max-height: 4vh;
@@ -143,20 +169,4 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
-}
-
-#list-1 {
-    background-color: var(--red);
-}
-
-#list-2 {
-    background-color: var(--blue);
-}
-
-#list-3 {
-    background-color: var(--green);
-}
-
-#list-4 {
-    background-color: var(--mauve);
 }
