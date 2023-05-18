@@ -68,24 +68,6 @@
 /home/tsukki/Music/Kendrick Lamar - DAMN. (2017) FLAC/Kendrick Lamar - DAMN. (2017)/12 FEAR..flac
 /home/tsukki/Music/Kendrick Lamar - DAMN. (2017) FLAC/Kendrick Lamar - DAMN. (2017)/13. GOD..flac
 /home/tsukki/Music/Kendrick Lamar - DAMN. (2017) FLAC/Kendrick Lamar - DAMN. (2017)/14. DUCKWORTH.flac
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD1/01. United In Grief.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD1/02. N95.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD1/03. Worldwide Steppers.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD1/04. Die Hard.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD1/05. Father Time.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD1/06. Rich (Interlude).mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD1/07. Rich Spirit.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD1/08. We Cry Together.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD1/09. Purple Hearts.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/01. Count Me Out.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/02. Crown.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/03. Silent Hill.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/04. Savior (Interlude).mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/05. Savior.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/06. Auntie Diaries.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/07. Mr. Morale.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/08. Mother I Sober.mp3
-/home/tsukki/Music/Kendrick Lamar - Mr. Morale & The Big Steppers (2022) Mp3 320kbps [PMEDIA] ⭐️/CD2/09. Mirror.mp3
 /home/tsukki/Music/Kero Kero Bonito/[2014] Flamingo/Kero Kero Bonito - Flamingo - Flamingo.mp3
 /home/tsukki/Music/khai dreams/[2017] Summer Is Like a Dream/khai dreams - Summer Is Like a Dream - Daydreamer.mp3
 /home/tsukki/Music/khai dreams/[2017] Summer Is Like a Dream/khai dreams - Summer Is Like a Dream - Drifting Away.mp3

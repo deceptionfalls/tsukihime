@@ -19,9 +19,16 @@
     --surface1: #494d64;
     --surface2: #5b6078;
     --text: #cad3f5;
-    --mauve: #c6a0f6;
+    --rosewater: #f4dbd6;
     --lavender: #b7bdf8;
+    --red: #ed8796;
+    --peach: #f5a97f;
+    --yellow: #eed49f;
+    --green: #a6da95;
+    --teal: #8bd5ca;
     --blue: #8aadf4;
+    --mauve: #c6a0f6;
+    --flamingo: #f0c6c6;
 }
 
 body{
@@ -32,7 +39,7 @@ body{
 img{
     width: 5%;
     height: auto;
-    margin-top: 10%;
+    margin-top: 15vh;
     clip-path: circle(50% at 50% 50%);
 }
 
@@ -48,12 +55,12 @@ h3{
     color: var(--surface0);
     width: auto;
     height: 50%;
+    max-height: 50%;
     margin: 0;
     margin-bottom: 15px;
     padding: 5px;
     font-weight: bold;
     font-size: 20px;
-    background: var(--mauve);
 }
 
 h1, h2{
@@ -73,13 +80,15 @@ ul{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 15%;
+    width: 20vh;
+    min-width: 20vh;
+    max-width: 20vh;
     height: auto;
     outline-color: var(--mantle);
     background-color: var(--mantle);
     padding: 20px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 1vh;
+    margin-left: 1vh;
     line-break: auto;
 }
 
@@ -113,8 +122,10 @@ form {
 }
 
 form > input[type="text"] {
-  height: 30px;
-  width: 780px;
+  height: 4vh;
+  max-height: 4vh;
+  width: 100vh;
+  max-width: 100vh;
   font-size: 20px;
   color: var(--surface2);
   background-color: var(--mantle);
@@ -132,4 +143,20 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+#list-1 {
+    background-color: var(--red);
+}
+
+#list-2 {
+    background-color: var(--blue);
+}
+
+#list-3 {
+    background-color: var(--green);
+}
+
+#list-4 {
+    background-color: var(--mauve);
 }
