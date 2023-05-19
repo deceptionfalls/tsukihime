@@ -40,35 +40,35 @@
 body{
     background-color: var(--base);
     text-align: center;
+    color: var(--text);
 }
 
 /* Our profile pic setup */
 img{
-    width: 5%;
+    max-width: 7vw;
     height: auto;
-    margin-top: 15vh;
+    margin-top: 7vw;
     clip-path: circle(50% at 50% 50%);
-}
-
-h1{
-    color: var(--text);
-}
-
-h2{
-    color: var(--surface1)
 }
 
 /* This regulates the h3's font and the block background it uses */
 h3{
     color: var(--surface0);
     width: auto;
-    height: 50%;
-    max-height: 50%;
+    max-height: 2vw;
     margin: 0;
-    margin-bottom: 15px;
-    padding: 5px;
+    margin-bottom: 1vh;
+    padding: 5%;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 2vh;
+}
+
+/* Setting up h1 and h2 */
+h1, h2{
+    margin: 1vh;
+    font-size: 2.5vw;
+    padding: 0;
+    color: var(--text);
 }
 
 /* The background color of each list's header background */
@@ -88,10 +88,6 @@ h3{
     background-color: var(--mauve);
 }
 
-h1, h2{
-    margin-bottom: 10px;
-    padding: 0;
-}
 
 /* This regulates the links */
 .links{
@@ -107,16 +103,18 @@ ul{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 20vh;
-    min-width: 20vh;
-    max-width: 20vh;
+    min-width: 12vw;
+    max-width: 12vw;
     height: auto;
     outline-color: var(--mantle);
     background-color: var(--mantle);
-    padding: 20px;
-    margin-right: 1vh;
-    margin-left: 1vh;
+    padding: 1vw;
+    margin: 1vh;
     line-break: auto;
+}
+
+li{
+  font-size: 2vh;
 }
 
 /* Color of each individual link */
@@ -128,17 +126,9 @@ a{
 /* This makes it so that the links turn bold when hovered or focused with TAB*/
 a:hover, a:focus{
     color: var(--text);
-    font-weight: bold;
     cursor: pointer;
 }
 
-footer{
-    color: var(--surface2);
-}
-
-footer a:hover{
-    color: var(--mauve);
-}
 
 /* Regulates our search bar */
 form {
@@ -148,25 +138,35 @@ form {
 
 /* Search bar style */
 form > input[type="text"] {
-  height: 4vh;
-  max-height: 4vh;
-  width: 100vh;
-  max-width: 100vh;
-  font-size: 20px;
   color: var(--surface2);
   background-color: var(--mantle);
-  padding-left: 13px;
-  margin: 15px;
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
-  border-radius: 35px;
-  border: 5px solid var(--mantle);
+  max-height: 2vh;
+  min-width: 80vh;
+  max-width: 80vh;
+  font-size: 2vh;
+  padding-left: 1vw;
+  margin: 1vw;
+  border: 1vh solid var(--mantle);
+  -webkit-border-radius: 3vw;
+  -moz-border-radius: 3vw;
+  border-radius: 3vw;
   vertical-align: top;
 }
 
+/* This fixes some highlighting issues with the search bar */
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+/* Footer */
+footer p{
+  font-size: 2vh;
+  color: var(--surface2);
+}
+
+footer p a:hover{
+  color: var(--mauve);
 }
