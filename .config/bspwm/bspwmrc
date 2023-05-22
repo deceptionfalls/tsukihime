@@ -22,10 +22,10 @@ bspc rule -a Nitrogen state=floating
 bspc rule -a Qbittorrent state=floating
 
 # autostart
-killall picom
+killall picom # kill if already running
+exec picom &
 nitrogen --restore
 bash ~/.config/polybar/launch.sh --blocks
-exec picom &
 exec thunar --daemon &
 xfsettingsd &
 xfce4-power-manager &
