@@ -140,7 +140,7 @@ form {
 form > input[type="text"] {
   color: var(--surface2);
   background-color: var(--mantle);
-  max-height: 2vh;
+  max-height: 3vh;
   min-width: 80vh;
   max-width: 80vh;
   font-size: 2vh;

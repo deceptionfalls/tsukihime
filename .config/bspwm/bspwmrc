@@ -15,14 +15,13 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 # rules
-
 bspc rule -a Screenkey manage=off
-bspc rule -a gparted state=floating
-bspc rule -a Gparted state=floating
-bspc rule -a emacsclient -c -a 'emacs' state=tiled
+bspc rule -a Emacs state=tiled
+bspc rule -a GParted state=floating
+bspc rule -a Nitrogen state=floating
+bspc rule -a Qbittorrent state=floating
 
 # autostart
-
 killall picom
 nitrogen --restore
 bash ~/.config/polybar/launch.sh --blocks
