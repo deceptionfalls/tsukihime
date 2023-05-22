@@ -6,9 +6,9 @@ My personal dotfiles repository. The purpose of this repository is to function a
 
 ### My current programs
 - **Window Manager**: bspwm
-- **Top Bar**: Polybar 
-- **Terminal Emulator**: Alacritty 
-- **Text Editor**: Neovim, DOOM Emacs 
+- **Bar**: Polybar
+- **Terminal Emulator**: Alacritty with tmux
+- **Text Editor**: Neovim(for coding), DOOM Emacs(for general writing) 
 - **App Launcher**: Rofi 
 - **File Explorer**: Thunar(GUI), Ranger(TUI)
 - **Shell**: Fish with starship prompt
