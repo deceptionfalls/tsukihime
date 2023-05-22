@@ -1,6 +1,6 @@
 # Dotfiles
 
-![preview-of-setup](https://imgur.com/gallery/RT5JWM8)
+![setup preview](https://gitlab.com/tsukki9696/dotfiles/-/raw/main/updated-rice.png)
 
 ## What is it?
 
