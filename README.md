@@ -1,18 +1,17 @@
 # Dotfiles
-![Preview of the setup](Pictures/Screenshots/setup.png)
 
 ## What is it?
 
-My personal dotfiles repository. The purpose of this repository is to function as both a backup and as a way for people to freely inspect my configs. Some of the files here are for mostly, my personal use but anyone can freely clone this repository to use it as they see fit.
+My personal dotfiles repository. The purpose of this repository is to function as both a backup and as a way for people to freely inspect my configs. Some of the files here are for mostly, my personal use but anyone can freely clone this repository to use it as they see fit. Many configs here can change time to time, and what I use may change as well.
 
-### Programs I use
-- **Window Manager**: Openbox
+### My current programs
+- **Window Manager**: bspwm
 - **Top Bar**: Polybar 
 - **Terminal Emulator**: Alacritty 
-- **Text Editor**: Geany and DOOM Emacs 
+- **Text Editor**: Neovim, DOOM Emacs 
 - **App Launcher**: Rofi 
-- **File Explorer**: Thunar 
-- **Shell**: Bash and Fish
+- **File Explorer**: Thunar(GUI), Ranger(TUI)
+- **Shell**: Fish with starship prompt
 
 ### Terminal scrips that I use
 - **neofetch** for checking specs.
