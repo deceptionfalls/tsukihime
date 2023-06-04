@@ -6,8 +6,8 @@
   bga:  #1e2030;
   fga:  #b7bdf8;
   fg:   #b7bdf8;
-  ac:   #EDB83FFF;
-  se:   #EDB83F40;
+  ac:   #61C766FF;
+  se:   #61C76640;
   ac2:   #c6a0f6;
   se2:   #1e2030;
 }

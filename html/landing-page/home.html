@@ -16,8 +16,8 @@ _____   ___   _  _
 
 <body>
 
-  <img src="/home/tsukki/Pictures/Others/icon.png" alt="your profile picture"/> 
-  <h1>Welcome Back, Tsukki!</h1> <!--Your name-->
+  <img src="icon.png" alt="your profile picture"/> 
+  <h1>Welcome Back, <strong>Tsukki</strong>!</h1> <!--Your name-->
 
   <!-- <h2>Search with DuckDuckGo</h2> -->
   <div>
@@ -30,7 +30,7 @@ _____   ___   _  _
   <!--Your link list-->
   <div class="links">
     <ul>
-      <h3 id='list-1'>Useful</h3> <!--List title-->
+      <h3 class='toggled'>Useful</h3> <!--List title-->
       <li><a href="https://aur.archlinux.org/" target="_blank">AUR</a></li>
       <li><a href="https://freemediaheckyeah.pages.dev/" target="_blank">FMHY</a></li>
       <li><a href="https://gitlab.com/" target="_blank">Gitlab</a></li>
@@ -39,7 +39,7 @@ _____   ___   _  _
     </ul>
 
     <ul>
-      <h3 id='list-2'>Subreddits</h3> <!--List title-->
+      <h3 class='toggled'>Subreddits</h3> <!--List title-->
       <li><a href="https://r-roms.github.io/megathread/popular/" target="_blank">r/roms</a></li>
       <li><a href="https://www.reddit.com/r/Piracy/wiki/megathread/" target="_blank">r/piracy</a></li>
       <li><a href="https://www.reddit.com/r/unixporn/" target="_blank">r/unixporn</a></li>
@@ -48,16 +48,16 @@ _____   ___   _  _
     </ul>
 
     <ul>
-      <h3 id='list-3'>Learning</h3> <!--List title-->
+      <h3 class='toggled'>Learning</h3> <!--List title-->
       <li><a href="https://cursa.app/pt" target="_blank">Cursa</a></li>
       <li><a href="https://codewars.com/" target="_blank">Codewars</a></li>
       <li><a href="https://monkeytype.com" target="_blank">Monketype</a></li>
       <li><a href="https://codecademy.com/" target="_blank">Codecademy</a></li>
-      <li><a href="https://freecodecamp.org/" target="_blank">Freecodecamp</a></li>
+      <li><a href="https://freecodecamp.org/" target="_blank">FreeCodeCamp</a></li>
     </ul>
 
     <ul>
-      <h3 id='list-4'>Tools</h3> <!--List title-->
+      <h3 class='toggled'>Tools</h3> <!--List title-->
       <li><a href="https://coolors.co/" target="_blank">Coolors</a></li>
       <li><a href="https://www.photopea.com/" target="_blank">Photopea</a></li>
       <li><a href="https://cloudconvert.com/" target="_blank">Cloudconvert</a></li>
@@ -65,6 +65,10 @@ _____   ___   _  _
       <li><a href="https://www.marcrobledo.com/RomPatcher.js/" target="_blank">Rom Patcher JS</a></li>
     </ul>
   </div>
+
+  <!--script for dynamic toggling colors-->
+  <script src='script.js'>
+  </script>
 
 <footer>
   <p>Made by <strong><a href='https://gitlab.com/tsukki9696'>@tsukki9696</a></strong></p>
