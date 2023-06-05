@@ -15,6 +15,6 @@ settings:
   statusbar.show:
     global: in-mode
   tabs.show:
-    global: always
+    global: multiple
   zoom.default:
-    global: 67%
+    global: 100%

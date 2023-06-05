@@ -1,5 +1,5 @@
 if status is-interactive
-  colorscript random
+  pokemon-colorscripts -r -s
 end
 
 starship init fish | source

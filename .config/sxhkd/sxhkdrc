@@ -1,18 +1,15 @@
-#
 # wm independent hotkeys
-#
-
 # terminal emulator
 super + Return
 	alacritty	
 
-# qutebrowser
-super + q 
-	qutebrowser
-
 # neovim 
 super + v 
 	alacritty -e nvim	
+
+# ncmpcpp
+super + b
+	alacritty -e ncmpcpp
 
 # thunar
 super + e 
@@ -22,13 +19,21 @@ super + e
 super + w
 	firefox
 
-# cmus
-super + c
-	alacritty -e cmus
+# ranger
+super + r
+	  alacritty -e ranger
+
+# qutebrowser
+super + q
+	  qutebrowser
 
 # emacs
 super + m 
 	emacsclient -c -a 'emacs'
+
+# nitrogen
+super + n
+	nitrogen
 
 # betterlockscreen
 Scroll_Lock
@@ -38,6 +43,10 @@ Scroll_Lock
 Print
 	xfce4-screenshooter -f -s Pictures/Screenshots/
 
+# print selected region
+shift + Print
+	xfce4-screenshooter -r
+
 # program launcher
 super + @space 
 	rofi -show drun
@@ -46,21 +55,18 @@ super + @space
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
 # bspwm hotkeys
-#
-
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-alt + F4
+super + c
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
-# super + m
-# 	 bspc desktop -l next
+super + shift + m
+    bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
 super + y
@@ -70,10 +76,7 @@ super + y
 super + g
 	bspc node -s biggest.window
 
-#
 # state/flags
-#
-
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
@@ -82,9 +85,7 @@ super + {t,shift + t,s,f}
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-#
 # focus/swap
-#
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
@@ -95,8 +96,8 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
+# super + {_,shift + }c
+# bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
@@ -116,10 +117,7 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-#
 # preselect
-#
-
 # preselect the direction
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
@@ -136,10 +134,7 @@ super + ctrl + space
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-#
 # move/resize
-#
-
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}

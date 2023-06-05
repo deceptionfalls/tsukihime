@@ -15,9 +15,6 @@ alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
-# Neovim
-alias vim="nvim"
-
 ### EXPORTS
 export PATH="~/.config/emacs/bin:$PATH"
 export TERM="xterm-256color"                      # getting proper colors
@@ -76,8 +73,7 @@ ex ()
 ##ALIASES##
 
 alias ..='cd ..'                                  # go to parent
-alias remove='sudo pacman -R'                     # remove packages
-alias spot='python ~/onthespot/__init__.py'       # start onthespot
+alias ...='cd ...'                                # go to grandparent
 alias emacs='emacsclient -c -a 'emacs''           # start emacs as emacsclient
 
 # Colorize grep output (good for log files)
@@ -93,7 +89,7 @@ alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR 
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
 
-# switch between shells
+# switch between default shells
 # I do not recommend switching default SHELL from bash.
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
@@ -133,7 +129,10 @@ alias doas="doas --"
 ### RANDOM COLOR SCRIPT ###
 # Get this script from my GitLab: gitlab.com/dwt1/shell-color-scripts
 # Or install it from the Arch User Repository: shell-color-scripts
-colorscript random
+# colorscript random
+
+### RANDOM POKEMON COLORSCRIPT ###
+pokemon-colorscripts -r -s     # random and shiny pokemon
 
 # navigation
 up () {
