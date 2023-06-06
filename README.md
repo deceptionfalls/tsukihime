@@ -1,5 +1,5 @@
 # Dotfiles
-https://imgur.com/gallery/8qhMDZv
+![rice](https://i.imgur.com/FbKQB0W.png)
 
 ## What is it?
 
