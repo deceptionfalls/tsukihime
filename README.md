@@ -1,5 +1,5 @@
 # Dotfiles
-(https://imgur.com/gallery/8qhMDZv)
+https://imgur.com/gallery/8qhMDZv
 
 ## What is it?
 
