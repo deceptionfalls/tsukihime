@@ -13,7 +13,7 @@ My personal dotfiles repository. The purpose of this repository is to function a
 - **App Launcher**: Rofi 
 - **File Explorer**: Thunar(GUI), Ranger(TUI)
 - **Shell**: Fish (with starship prompt)
-- **Music Player**: ncmpcpp
+- **Music Player**: mpd with ncmpcpp as a client
 
 ### Terminal scrips that I use
 - **neofetch** for checking specs.
