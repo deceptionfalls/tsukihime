@@ -3,12 +3,12 @@
 super + Return
 	alacritty	
 
-# neovim 
+# neovim(lunarvim)
 super + v 
-	alacritty -e nvim	
+	alacritty -e lvim
 
 # ncmpcpp
-super + b
+super + n
 	alacritty -e ncmpcpp
 
 # thunar
@@ -21,19 +21,15 @@ super + w
 
 # ranger
 super + r
-	  alacritty -e ranger
+	alacritty -e ranger
 
 # qutebrowser
 super + q
-	  qutebrowser
+	qutebrowser
 
 # emacs
 super + m 
 	emacsclient -c -a 'emacs'
-
-# nitrogen
-super + n
-	nitrogen
 
 # betterlockscreen
 Scroll_Lock
@@ -50,6 +46,42 @@ shift + Print
 # program launcher
 super + @space 
 	rofi -show drun
+
+#
+# mpd
+#
+
+# next
+super + p
+    mpc --host 192.168.100.252 --port 8820 next
+
+# prev
+super + o
+    mpc --host 192.168.100.252 --port 8820 prev
+
+# toggle
+super + i
+    mpc --host 192.168.100.252 --port 8820 toggle
+
+# random
+super + u
+    mpc --host 192.168.100.252 --port 8820 random && dunstify MPD "Random Mode toggled." -t 1150
+
+#
+# volume
+#
+
+# 75% volume (100% hurts my ears)
+super + shift + p
+    amixer -c 0 set Master 88% && notify-send AlsaMixer 'Volume is now 75%.' -t 1150
+
+# 50% volume
+super + shift + o
+    amixer -c 0 set Master 72% && notify-send AlsaMixer 'Volume is now 50%.' -t 1150
+
+# 20% volume
+super + shift + i
+    amixer -c 0 set Master 36% && notify-send AlsaMixer 'Volume is now 20%.' -t 1150
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -97,7 +129,7 @@ super + {p,b,comma,period}
 
 # focus the next/previous window in the current desktop
 # super + {_,shift + }c
-# bspc node -f {next,prev}.local.!hidden.window
+#   bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
