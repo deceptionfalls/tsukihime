@@ -32,6 +32,8 @@ bash ~/.config/polybar/launch.sh --blocks # launch polybar
 
 # mpd autostart
 mpd
+mpd-notification 
+mpd-discord-rpc
 
 # other autostarts
 exec thunar --daemon &

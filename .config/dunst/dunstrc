@@ -39,7 +39,7 @@
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 3
+    notification_limit = 1
 
     ### Progress bar ###
 
@@ -68,7 +68,7 @@
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
-    indicate_hidden = yes
+    indicate_hidden = no
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
@@ -79,7 +79,7 @@
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 2
+    separator_height = 10
 
     # Padding between text and separator.
     padding = 8
@@ -186,10 +186,10 @@
     ignore_newline = no
 
     # Stack together notifications with the same content
-    stack_duplicates = true
+    stack_duplicates = false
 
     # Hide the count of stacked notifications with the same content
-    hide_duplicate_count = false
+    hide_duplicate_count = true
 
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
@@ -201,7 +201,8 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    icon_theme = Papirus
+
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
@@ -231,7 +232,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = rofi -dmenu -p dunst:
 
     # Browser for opening urls in context menu.
     browser = firefox
@@ -299,9 +300,9 @@
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 
-# Experimental features that may or may not work correctly. Do not expect them
-# to have a consistent behaviour across releases.
-[experimental]
+    # Experimental features that may or may not work correctly. Do not expect them
+    # to have a consistent behaviour across releases.
+    [experimental]
     # Calculate the dpi to use on a per-monitor basis.
     # If this setting is enabled the Xft.dpi value will be ignored and instead
     # dunst will attempt to calculate an appropriate dpi value for each monitor
@@ -315,14 +316,14 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#24273a"
     foreground = "#cad3f5"
-    timeout = 10
+    timeout = 1150
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
     background = "#24273a"
     foreground = "#cad3f5"
-    timeout = 10
+    timeout = 1150
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
@@ -330,7 +331,7 @@
     background = "#24273a"
     foreground = "#cad3f5"
     frame_color = "#ed8796"
-    timeout = 0
+    timeout = 1150
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon
 
@@ -409,9 +410,10 @@
 #    msg_urgency = critical
 #    fullscreen = show
 
-#[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
+[capslock]
+    summary = "capslock"
+    script = dunst_caps_lock.sh
+    urgency = critical
 
 #[script-test]
 #    summary = "*script*"
