@@ -14,26 +14,22 @@ bspc config gapless_monocle      true
 
 # rules
 bspc rule -a Screenkey manage=off
-
-# start tiled
 bspc rule -a Emacs state=tiled
-
-# start floating
 bspc rule -a GParted state=floating
 bspc rule -a Nitrogen state=floating
 bspc rule -a Qbittorrent state=floating
 bspc rule -a feh state=floating
 
 # autostart desktop
-killall picom 														# kill if already running
-exec picom &															# execute picom
-nitrogen --restore 												# random wallpaper
-bash ~/.config/polybar/launch.sh --blocks # launch polybar
+killall picom 											# kill if already running
+exec picom & 											# execute picom
+nitrogen --restore 										# wallpaper
+bash ~/.config/polybar/launch.sh --blocks               # launch polybar
 
 # mpd autostart
 mpd
+killall mpd-notification
 mpd-notification 
-mpd-discord-rpc
 
 # other autostarts
 exec thunar --daemon &
