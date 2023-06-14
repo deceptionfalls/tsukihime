@@ -23,7 +23,7 @@ Caps_Lock
     /home/tsukki/.config/dunst/dunst_caps_lock.sh
 
 # program launcher
-super + @space 
+super + @space
 	rofi -show drun
 
 #

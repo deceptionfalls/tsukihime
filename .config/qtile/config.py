@@ -80,6 +80,7 @@ keys = [
     Key([mod], "l", lazy.layout.right()),
 
 # Qtile Layout Actions
+    Key(["mod1"], "r", lazy.spawncmd()),
     Key([mod], "r", lazy.layout.reset()),
     Key([mod], "Tab", lazy.next_layout()),
     Key([mod, "shift"], "f", lazy.layout.flip()),
@@ -135,10 +136,10 @@ groups.append(ScratchPad("scratchpad", [
 
 # Scratchpad keybindings
 keys.extend([
-    Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key([mod], "b", lazy.group['scratchpad'].dropdown_toggle('ranger')),
     Key([mod], "v", lazy.group['scratchpad'].dropdown_toggle('volume')),
-    Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('mus')),
+    Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('mus')),
     Key([mod, "shift"], "n", lazy.group['scratchpad'].dropdown_toggle('term2')),
 ])
 
@@ -242,12 +243,22 @@ def get_widgets():
             urgent_border=catppuccin['red']
             ),
         widget.Spacer(
+            length=5,
+            background=catppuccin['base'],
+            ),
+        widget.Prompt(
+            foreground=catppuccin['surface0'],
+            cursorblink=0.9,
+            prompt='Run: '
+            ),
+        widget.Spacer(
             length=1,
             background=catppuccin['base'],
             ),
         widget.WindowName(
             fontsize=12,
-            foreground=catppuccin["surface0"]
+            foreground=catppuccin["surface0"],
+            padding=5,
             ),
         widget.Spacer(
             length=1,
