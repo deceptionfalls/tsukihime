@@ -1,0 +1,63 @@
+# thunar
+super + e 
+	thunar
+
+# firefox
+super + w
+	firefox
+
+# betterlockscreen
+Scroll_Lock
+	betterlockscreen -l
+
+# print screen
+Print
+	xfce4-screenshooter -f -s Pictures/Screenshots/
+
+# print selected region
+shift + Print
+	xfce4-screenshooter -r
+
+# checker for caps lock
+Caps_Lock
+    /home/tsukki/.config/dunst/dunst_caps_lock.sh
+
+# program launcher
+super + @space
+	rofi -show drun
+
+#
+# mpd
+#
+
+# next
+super + p
+    mpc --host 192.168.100.252 --port 8820 next
+
+# prev
+super + o
+    mpc --host 192.168.100.252 --port 8820 prev
+
+# toggle
+super + i
+    mpc --host 192.168.100.252 --port 8820 toggle
+
+#
+# volume
+#
+
+# 75% volume (100% hurts my ears)
+super + shift + p
+    amixer -c 0 set Master 88% && notify-send AlsaMixer 'Volume is now 75%.' -t 1150
+
+# 50% volume
+super + shift + o
+    amixer -c 0 set Master 72% && notify-send AlsaMixer 'Volume is now 50%.' -t 1150
+
+# 20% volume
+super + shift + i
+    amixer -c 0 set Master 36% && notify-send AlsaMixer 'Volume is now 20%.' -t 1150
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd

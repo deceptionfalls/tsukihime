@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 10x50
+    offset = 9x30 
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -410,9 +410,9 @@
 #    msg_urgency = critical
 #    fullscreen = show
 
-[capslock]
+[dunst_caps_lock]
     summary = "capslock"
-    script = dunst_caps_lock.sh
+    script = ~/.config/dunst/dunst_caps_lock.sh
     urgency = critical
 
 #[script-test]
