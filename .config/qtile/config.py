@@ -102,8 +102,8 @@ groups = []
 
 group_names = ["1", "2", "3", "4", "5"]
 
-group_labels = ["", "", "󰉋", "󰙯", ""]
-#group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+# group_labels = ["", "", "󰉋", "󰙯", ""]
+group_labels = ["1", "2", "3", "4", "5"]
 
 group_layouts = ["monadtall", "monadtall", "monadwide", "columns", "max"]
 
@@ -137,10 +137,10 @@ groups.append(ScratchPad("scratchpad", [
 # Scratchpad keybindings
 keys.extend([
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key([mod, "shift"], "m", lazy.group['scratchpad'].dropdown_toggle('term2')),
     Key([mod], "b", lazy.group['scratchpad'].dropdown_toggle('ranger')),
     Key([mod], "v", lazy.group['scratchpad'].dropdown_toggle('volume')),
     Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('mus')),
-    Key([mod, "shift"], "n", lazy.group['scratchpad'].dropdown_toggle('term2')),
 ])
 
 #Colors
@@ -165,14 +165,14 @@ catppuccin = {
 
 layouts = [
     layout.MonadTall(
-        margin=4,
+        margin=6,
         border_width=2,
         border_normal=catppuccin['crust'],
         border_focus=catppuccin['mauve'],
         ),
     layout.Columns(
-        margin=4,
-        border_width=2,
+        margin=6,
+        border_width=1,
         border_normal=catppuccin['crust'],
         border_focus=catppuccin['mauve'],
         ),
@@ -187,8 +187,8 @@ layouts = [
     #     ),
     # layout.Matrix(),
     layout.MonadWide(
-        margin=4,
-        border_width=2,
+        margin=6,
+        border_width=1,
         border_normal=catppuccin['crust'],
         border_focus=catppuccin['mauve'],
         ),
@@ -247,7 +247,7 @@ def get_widgets():
             background=catppuccin['base'],
             ),
         widget.Prompt(
-            foreground=catppuccin['surface0'],
+            foreground=catppuccin['text'],
             cursorblink=0.9,
             prompt='Run: '
             ),
@@ -259,6 +259,7 @@ def get_widgets():
             fontsize=12,
             foreground=catppuccin["surface0"],
             padding=5,
+            max_chars=25,
             ),
         widget.Spacer(
             length=1,
@@ -266,7 +267,7 @@ def get_widgets():
             ),
         widget.Mpd2(
             play_states={'pause': '', 'play': '', 'stop': ''},
-            status_format='{play_status} {title}',
+            status_format='{play_status} {artist} - {title}',
             port='8820',
             host='192.168.100.252',
             no_connection='Offline',
@@ -339,6 +340,7 @@ def get_widgets():
             ),
         widget.ScriptExit(
             foreground=catppuccin['red'],
+            exit_script='~/.config/qtile/shutdown.sh',
             default_text='󰐦 ',
             countdown_format='{} ',
             countdown_start=6,
