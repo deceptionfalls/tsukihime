@@ -7,6 +7,9 @@ from libqtile import layout, bar, hook, widget
 from libqtile.lazy import lazy
 
 from qtile_extras import widget
+import summer
+
+summer, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo = summer.summer()
 
 mod = "mod4"
 terminal = "alacritty"
@@ -102,10 +105,10 @@ groups = []
 
 group_names = ["1", "2", "3", "4", "5"]
 
-# group_labels = ["", "", "󰉋", "󰙯", ""]
-group_labels = ["1", "2", "3", "4", "5"]
+group_labels = ["", "", "󰙯", "󰉋", "󰅢"]
+# group_labels = ["1", "2", "3", "4", "5"]
 
-group_layouts = ["monadtall", "monadtall", "monadwide", "columns", "max"]
+group_layouts = ["monadtall", "monadtall", "max", "columns", "monadwide"]
 
 # Add group names, labels, and default layouts to the groups object.
 for i in range(len(group_names)):
@@ -218,13 +221,19 @@ extension_defaults = widget_defaults.copy()
 
 def get_widgets():
     widgets = [
-        widget.TextBox(
-            text=" 󰣇 ",
-            mouse_callbacks={"Button1": open_rofi},
-            fontsize=13,
-            background=catppuccin["base"],
-            foreground=catppuccin["mauve"],
-            margin=4,
+        # widget.TextBox(
+        #     text=" 󰣇 ",
+        #     mouse_callbacks={"Button1": open_rofi},
+        #     fontsize=13,
+        #     background=catppuccin["base"],
+        #     foreground=catppuccin["mauve"],
+        #     margin=4,
+        #     ),
+        widget.CurrentLayoutIcon(
+            scale=0.5,
+            foreground=catppuccin['mauve'],
+            use_mask=True,
+            padding=10,
             ),
         widget.GroupBox(
             fontsize=12,
@@ -257,7 +266,7 @@ def get_widgets():
             ),
         widget.WindowName(
             fontsize=12,
-            foreground=catppuccin["surface0"],
+            foreground=catppuccin['surface0'],
             padding=5,
             max_chars=25,
             ),
