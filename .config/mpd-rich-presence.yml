@@ -1,0 +1,34 @@
+# MPD connection
+host: "192.168.100.252"
+port: 8820 
+
+# can be "mpd" or "lastfm"
+branding: mpd
+
+rich_presence:
+  # available keys are:
+  # %album%
+  # %artist%
+  # %genre%
+  # %title%
+  # %year%
+  image:
+    large: "%album% (%year%)"
+    small: "%title%"
+  upper: "%title%"
+  lower: "by %artist%"
+  button: "View on Last.fm"
+  # can be "remaining" or "elapsed"
+  time: "elapsed"
+
+sleep:
+  long: 30s
+  short: 5s
+
+# you can turn lastfm off, so no queries will be sent to LastFM.
+# Album Art will be empty, it will just show the Logo chosen in "branding"
+lastfm:
+  enabled: true
+  # here you can choose your own api credentials, if you want to
+  #apiKey: ""
+  #apiSecret: ""
