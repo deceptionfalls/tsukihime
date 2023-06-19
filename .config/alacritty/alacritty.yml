@@ -7,11 +7,9 @@
 ## Import files (Colors, Fonts, Etc)
 import:
   - ~/.config/alacritty/colors.yml
+    # - ~/hyperplastic/alacritty/Hyperplastic.yml
   - ~/.config/alacritty/fonts.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
   - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 
 ## Set environment variables
 env:

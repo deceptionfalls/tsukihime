@@ -108,7 +108,7 @@ group_names = ["1", "2", "3", "4", "5"]
 group_labels = ["", "", "󰙯", "󰉋", "󰅢"]
 # group_labels = ["1", "2", "3", "4", "5"]
 
-group_layouts = ["monadtall", "monadtall", "max", "columns", "monadwide"]
+group_layouts = ["monadtall", "monadtall", "max", "monadtall", "monadtall"]
 
 # Add group names, labels, and default layouts to the groups object.
 for i in range(len(group_names)):
@@ -293,6 +293,15 @@ def get_widgets():
             background=catppuccin['base'],
             padding=5,
             ),
+        # widget.UPowerWidget(
+        #     fill_charge=catppuccin['mauve'],
+        #     fill_critical=catppuccin['mauve'],
+        #     fill_low=catppuccin['mauve'],
+        #     fill_normal=catppuccin['mauve'],
+        #     foreground=catppuccin['mauve'],
+        #     background=catppuccin['base'],
+        #     padding=5,
+        #     ),
         widget.CPU(
             format=" {load_percent}%",
             foreground=catppuccin['blue'],
@@ -386,6 +395,7 @@ cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
     *layout.Floating.default_float_rules,
     Match(wm_class='confirmreset'),  # gitk
+    Match(wm_class='qview'),  # qview
     Match(wm_class='makebranch'),  # gitk
     Match(wm_class='maketag'),  # gitk
     Match(wm_class='ssh-askpass'),  # ssh-askpass

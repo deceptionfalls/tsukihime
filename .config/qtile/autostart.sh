@@ -13,6 +13,7 @@ run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
 #start mpd
 [ ! -s ~/.config/mpd/pid ] && mpd &
 mpd-notification &
+mpd-rich-presence &
 mpc &
 
 clipmenud &
