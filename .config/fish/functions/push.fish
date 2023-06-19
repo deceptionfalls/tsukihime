@@ -1,4 +1,4 @@
-function push --wraps='git push origin' --description 'alias push=git push origin'
-  git push origin $argv
+function push --wraps='git push origin-new' --description 'alias push=git push origin-new'
+  git push origin-new $argv
         
 end
