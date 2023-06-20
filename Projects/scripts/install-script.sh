@@ -1,27 +1,32 @@
 #!/usr/bin/env bash
 
 pkgs=(
+  firefox
+  alacritty
+  fish
+  exa
+  bat
+  bat-extras
   neovim
   mpd
   mpv
   mpc
   ncmpcpp
-  exa
-  bat
-  bat-extras
-  fish
-  git
   rofi
   dunst
   python
-  firefox
   sxhkd
-  qview
   ranger
   npm
   flatpak
   nodejs
   neofetch
   lua
+  tmux
+  picom
+  starship
+  qview
   )
-sudo pacman -S "${pkgs[@]}"
+# get yay
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+yay -S "${pkgs[@]}"
