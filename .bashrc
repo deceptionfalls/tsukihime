@@ -162,4 +162,3 @@ export FZF_DEFAULT_OPTS=" \
 
 # initialize starship
 eval "$(starship init bash)"
-source /etc/profile.d/undistract-me.sh
