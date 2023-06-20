@@ -7,9 +7,6 @@ from libqtile import layout, bar, hook, widget
 from libqtile.lazy import lazy
 
 from qtile_extras import widget
-import summer
-
-summer, backgroundColor, foregroundColor, workspaceColor, foregroundColorTwo = summer.summer()
 
 mod = "mod4"
 terminal = "alacritty"

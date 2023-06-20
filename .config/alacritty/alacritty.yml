@@ -7,7 +7,7 @@
 ## Import files (Colors, Fonts, Etc)
 import:
   - ~/.config/alacritty/colors.yml
-    # - ~/hyperplastic/alacritty/Hyperplastic.yml
+    #- ~/hyperplastic/alacritty/Hyperplastic.yml
   - ~/.config/alacritty/fonts.yml
   - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
 
