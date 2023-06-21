@@ -52,7 +52,6 @@ pkgs=(
   bat-extras
   rofi
   p7zip
-  unzip
   # Qtile dependencies
   python-wifi
   python-mpd2
