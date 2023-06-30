@@ -1,13 +1,57 @@
-" Basic stuff
+" SETUP
+
+" Mapping
+let mapleader = ' '
+let maplocalleader = ' '
+
 set encoding=UTF-8
 set term=screen-256color
 set termguicolors
 set laststatus=2
 set noshowmode
 set number
+set showcmd
+set showmatch
+set hlsearch
+set wrap
+set linebreak
+set wrapmargin=80
+
+" Intellisense settings
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
+
+" Clipboard
+set clipboard=unnamedplus
+
+" No auto commenting
+set formatoptions-=cro
+
+" Casing settings
+set mouse=a
+set smartcase
+set ignorecase
+
+" Tab settings
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+syntax on
+
+" Lightline colorscheme
+let g:lightline = { 'colorscheme': 'catppuccin_macchiato', }
+
+" Make hidden directories shown by default
+let g:NERDTreeShowHidden=1
+
 if !has('gui_running')
   set t_Co=256
 endif
+
+" PLUGINS
 
 call plug#begin('~/.vim/plugged')
 
@@ -16,53 +60,95 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " NERDtree for file browsing
 Plug 'preservim/nerdtree' |
-	\ Plug 'Xuyuanp/nerdtree-git-plugin' |
-	\ Plug 'ryanoasis/vim-devicons'
+	\ Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" lightline for a statusbar
+" lightline for our statusbar
 Plug 'itchyny/lightline.vim'
 
 " vim-commentary
 Plug 'tpope/vim-commentary'
 
+" Intellisense
+Plug 'vim-scripts/AutoComplPop'
+
+" For typing brackets or single quotes
+Plug 'Raimondi/delimitMate'
+
 " Zen mode
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'amix/vim-zenroom2'
-
-" Intellisense setup
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'ncm2/ncm2-vim-lsp'
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
-Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+Plug 'w0rp/ale'
+Plug 'yuezk/vim-js'
+
+" Markdown support
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 
 " HTML Snippets
 Plug 'mattn/emmet-vim'
 
-" Emojis
-Plug 'subnut/ncm2-github-emoji'
-
 " Splash Screen
 Plug 'mhinz/vim-startify'
 
+" Highlight on yank
+Plug 'machakann/vim-highlightedyank'
+
 call plug#end()
 
+" Colorscheme
 colorscheme catppuccin_macchiato
 
-" Lightline settings
-let g:lightline = { 'colorscheme': 'catppuccin_macchiato', }
+" Quit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-nnoremap <SPACE> <Nop>
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" Keybinds
-let mapleader = ' '
+" ESLint
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = '!'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+
+" KEYBINDS
+
+" Go to end/beginning of line
+nnoremap <leader>l $
+nnoremap <leader>h 0
+
+" Reload config or Reload plugins
+nnoremap <silent> <leader>r :source "~/.vimrc"<CR>
+nnoremap <silent> <leader>q :PlugInstall<CR>
+
+" Clear search highlight
+map <leader>g :nohlsearch<CR>
+
+" Write and Quit
 map <leader>w :w<CR>
 map <leader>c :q<CR>
-map <leader>e :NERDTreeToggle<CR>
+nnoremap <SPACE> <Nop>
+
+" Spellchecking
+map <leader>s :setlocal spell! spelllang=en_au<CR>
+
+" Lint current file
+noremap <leader>u :make % <CR>:cwindow<CR>:redraw!<CR>
+noremap <leader>ui :make --fix % <CR>:cwindow<CR>:redraw!<CR>
+
+
+" Intellisense
+inoremap <expr> <C-k> pumvisible() ? "<C-p>" :"<Up>"
+inoremap <expr> <C-j> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <C-h> pumvisible() ? "<C-y>" :"<Right>"
+inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<Right>"
+inoremap <expr> <C-l> pumvisible() ? "<C-e>" :"<Left>"
+
+" Goyo
 map <silent> <leader>z :Goyo<cr>
-map <C-h> :NERDTreeFocus<CR>
+
+" NERDTree 
+map <leader>e :NERDTreeToggle<CR>
