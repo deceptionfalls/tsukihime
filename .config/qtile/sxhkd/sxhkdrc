@@ -1,30 +1,26 @@
-# thunar
+# file manager
 super + e 
-	thunar
+	pcmanfm
 
 # firefox
 super + w
 	firefox
 
-# betterlockscreen
-Scroll_Lock
-	betterlockscreen -l
-
 # print screen
-Print
-	xfce4-screenshooter -f -s Pictures/Screenshots/
+super + q
+  flameshot gui
 
-# print selected region
-shift + Print
-	xfce4-screenshooter -r
+# lock screen
+super + shift + q
+	betterlockscreen -l
 
 # checker for caps lock
 Caps_Lock
-    /home/tsukki/.config/dunst/dunst_caps_lock.sh
+	/home/tsukki/.config/dunst/dunst_caps_lock.sh
 
-# program launcher
+# rofi or dmenu
 super + @space
-	rofi -show drun
+	dmenu_run -c -bw 2 -l 20 -g 4
 
 #
 # mpd
@@ -32,32 +28,32 @@ super + @space
 
 # next
 super + p
-    mpc --host 192.168.100.252 --port 8820 next
+    mpc --host 192.168.100.201 --port 6601 next
 
 # prev
 super + o
-    mpc --host 192.168.100.252 --port 8820 prev
+    mpc --host 192.168.100.201 --port 6601 prev
 
 # toggle
 super + i
-    mpc --host 192.168.100.252 --port 8820 toggle
-
-#
-# volume
-#
-
-# 75% volume (100% hurts my ears)
-super + shift + p
-    amixer -c 0 set Master 88% && notify-send AlsaMixer 'Volume is now 75%.' -t 1150
-
-# 50% volume
-super + shift + o
-    amixer -c 0 set Master 72% && notify-send AlsaMixer 'Volume is now 50%.' -t 1150
-
-# 20% volume
-super + shift + i
-    amixer -c 0 set Master 36% && notify-send AlsaMixer 'Volume is now 20%.' -t 1150
+    mpc --host 192.168.100.201 --port 6601 toggle
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+#
+# brightness
+#
+
+# 100%
+super + shift + p
+    backlight_control 100 && notify-send 'Power Manager' 'Brightness is now 100%' -t 1500
+
+# 50%
+super + shift + o
+    backlight_control 50 && notify-send 'Power Manager' 'Brightness is now 50%' -t 1500
+
+# 10%
+super + shift + i
+    backlight_control 10 && notify-send 'Power Manager' 'Brightness is now 10%' -t 1500

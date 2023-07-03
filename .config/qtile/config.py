@@ -20,7 +20,8 @@ keys = [
 # Open terminal
     Key([mod], "Return", lazy.spawn(terminal)),
 # Qtile System Actions
-    Key([mod, "shift"], "r", lazy.restart()),
+    # Key([mod, "shift"], "r", lazy.restart()),
+    Key([mod, "shift"], "r", lazy.reload_config()),
 # Active Window Actions
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "c", lazy.window.kill()),
@@ -102,10 +103,10 @@ groups = []
 
 group_names = ["1", "2", "3", "4", "5"]
 
-group_labels = ["", "", "󰙯", "󰉋", "󰅢"]
-# group_labels = ["1", "2", "3", "4", "5"]
+group_labels = ["", "", "󰭹", "󰉋", ""]
+# group_labels = ["1", "2", "3", "4", "5", "6"]
 
-group_layouts = ["monadtall", "monadtall", "max", "monadtall", "monadtall"]
+group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "max"]
 
 # Add group names, labels, and default layouts to the groups object.
 for i in range(len(group_names)):
@@ -206,6 +207,9 @@ def launch_menu():
 def open_rofi():
     qtile.cmd_spawn("rofi -show drun -show-icons")
 
+def powermenu():
+    qtile.cmd_spawn("./rofi/powermenu.rasi")
+
 widget_defaults = dict(
     font="FiraCode Nerd Font Bold",
     fontsize=13,
@@ -218,14 +222,6 @@ extension_defaults = widget_defaults.copy()
 
 def get_widgets():
     widgets = [
-        # widget.TextBox(
-        #     text=" 󰣇 ",
-        #     mouse_callbacks={"Button1": open_rofi},
-        #     fontsize=13,
-        #     background=catppuccin["base"],
-        #     foreground=catppuccin["mauve"],
-        #     margin=4,
-        #     ),
         widget.CurrentLayoutIcon(
             scale=0.5,
             foreground=catppuccin['mauve'],
@@ -272,10 +268,10 @@ def get_widgets():
             background=catppuccin['base'],
             ),
         widget.Mpd2(
-            play_states={'pause': '', 'play': '', 'stop': ''},
+            play_states={'pause': '', 'play': '󰏦', 'stop': '󰙧'},
             status_format='{play_status} {artist} - {title}',
-            port='8820',
-            host='192.168.100.252',
+            port='6601',
+            host='192.168.100.201',
             no_connection='Offline',
             foreground=catppuccin['flamingo'],
             padding=5,
@@ -284,34 +280,53 @@ def get_widgets():
             length=1,
             background=catppuccin['base'],
             ),
-        widget.Memory(
-            format=" {MemUsed:.0f}{mm}",
+         widget.UPowerWidget(
+            battery_height=9,
+            percentage_low=0.90,
+            battery_name="BAT1",
+            fill_charge=catppuccin['mauve'],
+            fill_critical=catppuccin['red'],
+            fill_low=catppuccin['mauve'],
+            fill_normal=catppuccin['mauve'],
+            border_colour=catppuccin['mauve'],
+            border_charge_colour=catppuccin['mauve'],
+            border_critical_colour=catppuccin['red'],
             foreground=catppuccin['mauve'],
             background=catppuccin['base'],
+            text_charging='{percentage:.0f}%',
+            text_discharging='{percentage:.0f}%',
+            margin=4,
+            ),
+        widget.Battery(
+            battery_name='BAT1',
+            format='{percent:2.0%}',
+            foreground=catppuccin['mauve'],
             padding=5,
             ),
-        # widget.UPowerWidget(
-        #     fill_charge=catppuccin['mauve'],
-        #     fill_critical=catppuccin['mauve'],
-        #     fill_low=catppuccin['mauve'],
-        #     fill_normal=catppuccin['mauve'],
-        #     foreground=catppuccin['mauve'],
-        #     background=catppuccin['base'],
-        #     padding=5,
-        #     ),
+        #widget.Memory(
+        #    format=" {MemUsed:.0f}{mm}",
+        #    foreground=catppuccin['mauve'],
+        #    background=catppuccin['base'],
+        #    padding=5,
+        #    ),
         widget.CPU(
-            format=" {load_percent}%",
+            format="󰍛 {load_percent}%",
             foreground=catppuccin['blue'],
             background=catppuccin['base'],
             padding=5,
             ),
+        # widget.Backlight(
+        #     foreground=catppuccin['blue'],
+        #     backlight_name='intel_backlight',
+        #     step=10,
+        #     ),
         widget.Spacer(
             length=1,
             background=catppuccin['base'],
             ),
         widget.DF(
             foreground=catppuccin['teal'],
-            format=' {f}{m}',
+            format=' {f}{m}',
             measure='G',
             partition='/',
             update_interval=60,
@@ -324,17 +339,17 @@ def get_widgets():
             ),
         widget.Wlan(
             foreground=catppuccin['green'],
-            format=' {essid}',
-            disconnected_message=' Offline',
-            interface='wlp0s18f0u2u3',
-            padding=5,
+            format='󰤯 {essid}',
+            disconnected_message='󰤮 Offline',
+            interface='wlan0',
+            padding=3,
             ),
         widget.Spacer(
             length=1,
             background=catppuccin['base'],
             ),
         widget.PulseVolume(
-            fmt=" {}",
+            fmt=" {}",
             foreground=catppuccin['yellow'],
             background=catppuccin['base'],
             padding=5,
@@ -344,21 +359,26 @@ def get_widgets():
             background=catppuccin['base'],
             ),
         widget.Clock(
-            format=" %I:%M %p",
+            format=" %I:%M %p",
             foreground=catppuccin["peach"],
             background=catppuccin["base"],
             padding=5,
             ),
         widget.Spacer(
-            length=1,
+            length=5,
             background=catppuccin['base'],
             ),
-        widget.ScriptExit(
-            foreground=catppuccin['red'],
-            exit_script='~/.config/qtile/shutdown.sh',
-            default_text='󰐦 ',
-            countdown_format='{} ',
-            countdown_start=6,
+        widget.Spacer(
+            length=6,
+            background=catppuccin['red'],
+            ),
+        widget.TextBox(
+            text=" ",
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /home/tsukki/.config/rofi/deathemonic/bin/powermenu")},
+            fontsize=15,
+            background=catppuccin["red"],
+            foreground=catppuccin["base"],
+            font='Fira Code Nerd Font Bold',
             padding=5,
             ),
             ]
