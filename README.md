@@ -5,11 +5,10 @@ My personal dotfiles repository. The purpose of this repository is to function a
 
 ### My current programs
 - **Window Manager**: Qtile
-- **Bar**: Qtile's Bar
-- **Terminal Emulator**: Alacritty (with tmux)
-- **Text Editor**: Lunarvim(for coding), DOOM Emacs(for general writing) 
-- **App Launcher**: Rofi 
-- **File Explorer**: Thunar(GUI), Ranger(TUI)
+- **Terminal Emulator**: Alacritty
+- **Text Editor**: Lunarvim 
+- **App Launcher**: Dmenu
+- **File Explorer**: PCmanFM(GUI), Ranger(TUI)
 - **Shell**: Fish (with starship prompt)
 - **Music Player**: mpd with ncmpcpp as a client
 
@@ -19,9 +18,64 @@ My personal dotfiles repository. The purpose of this repository is to function a
 - **pokemon-colorscripts** for showing the pokemon sprite.
 - **[shell-color-scripts](https://gitlab.com/dwt1/shell-color-scripts)** for getting a random ASCII when the terminal boots up.
 
+### Setup
+This repo comes with a `install-script.sh` script that installs most dependencies for the programs I use. This script also will install `yay` and has a prompt for copying wallpapers from my wallpapers repository. 
+
+> You are encouraged to tinker with the script and tailor what you want and don't want to be installed, the script automatically bypass packages you have installed already. All packages come from the Arch User Repository, you might want to tinker with it to include packages from your distro's repository.
+
+```bash
+# List of packages
+# Insert what you wanna install here
+
+pkgs=(
+    # Core utils
+    firefox
+    alacritty
+    fish
+    dunst
+    ranger
+    flatpak
+    qview
+    neovim
+    ufw
+    # Langs
+    lua
+    nodejs
+    npm
+    python
+    # Leisure
+    mpd
+    mpv
+    mpc
+    ncmpcpp
+    neofetch
+    # Other tools
+    sxhkd
+    tmux
+    picom
+    starship
+    exa
+    bat
+    bat-extras
+    rofi
+    p7zip
+    # Qtile dependencies
+    python-wifi
+    python-mpd2
+    python-dbus-next
+    python-requests
+    python-cffi
+    wireless_tools
+    python-setuptools
+    python-pytest
+    python-iwlib
+    python-psutil
+)
+```
+
 ## Questions
 
-### How do I setup polybar (for bspwm and openbox rices)?
+### How do I setup polybar?
 `bash ~/.config/polybar/launch.sh --blocks` should work.
 
 ### Where can I find the wallpapers you use?
