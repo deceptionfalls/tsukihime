@@ -1,8 +1,8 @@
 # mpd setup
 ncmpcpp_directory = ~/.config/ncmpcpp
 lyrics_directory = ~/.lyrics
-mpd_host = 192.168.100.252
-mpd_port = 8820
+mpd_host = localhost
+mpd_port = 6601
 mpd_connection_timeout = 5
 mpd_music_dir = ~/Music
 
