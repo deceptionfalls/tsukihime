@@ -1,15 +1,16 @@
+from typing import List
 import os
 import subprocess
-from libqtile import qtile
+
+from libqtile import qtile, layout, bar, hook, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.command import lazy
-from libqtile import layout, bar, hook, widget
 from libqtile.lazy import lazy
 
 from qtile_extras import widget
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "kitty"
 
 @hook.subscribe.startup_once
 def autostart():
@@ -96,17 +97,26 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "h", lazy.layout.swap_left()),
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
+
+# Switch focus to specific monitor (out of three
+    Key([mod], "i", lazy.to_screen(0)), 
+    Key([mod], "o", lazy.to_screen(1)),
+
+# Switch focus of monitors
+    Key([mod], "period", lazy.next_screen()),
+    Key([mod], "comma", lazy.prev_screen()),
+
 ]
 
 # Create labels for groups and assign them a default layout.
 groups = []
 
-group_names = ["1", "2", "3", "4", "5"]
+group_names = ["1", "2", "3", "4", "5", "6"]
 
-group_labels = ["", "", "󰭹", "󰉋", ""]
+group_labels = ["", "", "󰭹", "󰉋", "", "󰍳"]
 # group_labels = ["1", "2", "3", "4", "5", "6"]
 
-group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "max"]
+group_layouts = ["monadtall", "monadtall", "max", "monadtall", "columns", "max"]
 
 # Add group names, labels, and default layouts to the groups object.
 for i in range(len(group_names)):
@@ -128,11 +138,11 @@ for i in groups:
 
 # Define scratchpads
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", "alacritty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("term2", "alacritty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("ranger", "alacritty --class=ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("volume", "alacritty --class=volume -e alsamixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("mus", "alacritty --class=mus -e ncmpcpp", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("term", "kitty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("term2", "kitty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("ranger", "kitty --class=ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("volume", "kitty --class=volume -e alsamixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("mus", "kitty --class=mus -e ncmpcpp", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
 ]))
 
 # Scratchpad keybindings
@@ -145,88 +155,51 @@ keys.extend([
 ])
 
 #Colors
-catppuccin = {
-    "base":         "#24273a",
-    "crust":        "#1e2030",
-    "surface0":     "#363a4f",
-    "surface1":     "#494d64",
-    "surface2":     "#5b6078",
-    "text":         "#cad3f5",
-    "rosewater":    "#f4dbd6",
-    "lavender":     "#b7bdf8",
-    "red":          "#ed8796",
-    "peach":        "#f5a97f",
-    "yellow":       "#eed49f",
-    "green":        "#a6da95",
-    "teal":         "#8bd5ca",
-    "blue":         "#8aadf4",
-    "flamingo":     "#f0c6c6",
-    "mauve":        "#c6a0f6",
-        }
+colors = []
+cache='/home/tsukki/.cache/wal/colors'
+def load_colors(cache):
+    with open(cache, 'r') as file:
+        for i in range(8):
+            colors.append(file.readline().strip())
+    colors.append('#ffffff')
+    lazy.reload()
+load_colors(cache)
+
+# Define layouts and layout themes
+layout_theme = {
+    "margin":5,
+    "border_width": 4,
+    "border_focus": colors[3],
+    "border_normal": colors[1]
+}
 
 layouts = [
-    layout.MonadTall(
-        margin=6,
-        border_width=2,
-        border_normal=catppuccin['crust'],
-        border_focus=catppuccin['mauve'],
-        ),
-    layout.Columns(
-        margin=6,
-        border_width=1,
-        border_normal=catppuccin['crust'],
-        border_focus=catppuccin['mauve'],
-        ),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(
-    #     margin=4,
-    #     border_width=2,
-    #     border_normal=catppuccin['crust'],
-    #     border_focus=catppuccin['mauve'],
-    #     ),
-    # layout.Matrix(),
-    layout.MonadWide(
-        margin=6,
-        border_width=1,
-        border_normal=catppuccin['crust'],
-        border_focus=catppuccin['mauve'],
-        ),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    # layout.MonadThreeCol(**layout_theme),
+    # layout.Floating(**layout_theme),
+    # layout.Spiral(**layout_theme),
+    # layout.RatioTile(**layout_theme),
+    layout.Max(**layout_theme)
 ]
 
 # Mouse callback functions
-def launch_menu():
-    qtile.cmd_spawn("rofi -show drun -show-icons")
-
-def open_rofi():
-    qtile.cmd_spawn("rofi -show drun -show-icons")
-
 def powermenu():
     qtile.cmd_spawn("./rofi/powermenu.rasi")
 
 widget_defaults = dict(
     font="FiraCode Nerd Font Bold",
     fontsize=13,
-    padding=2,
-    foreground=catppuccin["base"],
-    background=catppuccin["base"],
+    padding=5,
+    background=colors[0],
 )
 
 extension_defaults = widget_defaults.copy()
 
 def get_widgets():
     widgets = [
-        widget.CurrentLayoutIcon(
-            scale=0.5,
-            foreground=catppuccin['mauve'],
-            use_mask=True,
-            padding=10,
+        widget.Spacer(
+            length=10,
             ),
         widget.GroupBox(
             fontsize=12,
@@ -235,64 +208,35 @@ def get_widgets():
             disable_drag=True,
             borderwidth=3,
             highlight_method='text',
-            active=catppuccin['surface2'],
-            inactive=catppuccin['surface0'],
-            highlight_color=catppuccin['mauve'],
-            this_current_screen_border=catppuccin['mauve'],
-            this_screen_border=catppuccin['base'],
-            other_screen_border=catppuccin['base'],
-            other_current_screen_border=catppuccin['base'],
-            urgent_border=catppuccin['red']
+            active=colors[1],
+            this_current_screen_border=colors[2],
+            urgent_border=colors[0],
             ),
         widget.Spacer(
-            length=5,
-            background=catppuccin['base'],
-            ),
-        widget.Prompt(
-            foreground=catppuccin['text'],
-            cursorblink=0.9,
-            prompt='Run: '
-            ),
-        widget.Spacer(
-            length=1,
-            background=catppuccin['base'],
-            ),
-        widget.WindowName(
-            fontsize=12,
-            foreground=catppuccin['surface0'],
-            padding=5,
-            max_chars=25,
-            ),
-        widget.Spacer(
-            length=1,
-            background=catppuccin['base'],
             ),
         widget.Mpd2(
             play_states={'pause': '', 'play': '󰏦', 'stop': '󰙧'},
             status_format='{play_status} {artist} - {title}',
             port='6601',
-            host='192.168.100.201',
+            host='localhost',
             no_connection='Offline',
-            foreground=catppuccin['flamingo'],
+            foreground=colors[1],
             padding=5,
             ),
         widget.Spacer(
-            length=1,
-            background=catppuccin['base'],
             ),
          widget.UPowerWidget(
             battery_height=9,
             percentage_low=0.90,
             battery_name="BAT1",
-            fill_charge=catppuccin['mauve'],
-            fill_critical=catppuccin['red'],
-            fill_low=catppuccin['mauve'],
-            fill_normal=catppuccin['mauve'],
-            border_colour=catppuccin['mauve'],
-            border_charge_colour=catppuccin['mauve'],
-            border_critical_colour=catppuccin['red'],
-            foreground=catppuccin['mauve'],
-            background=catppuccin['base'],
+            fill_charge=colors[1],
+            fill_critical=colors[2],
+            fill_low=colors[1],
+            fill_normal=colors[1],
+            border_colour=colors[1],
+            border_charge_colour=colors[1],
+            border_critical_colour=colors[2],
+            foreground=colors[1],
             text_charging='{percentage:.0f}%',
             text_discharging='{percentage:.0f}%',
             margin=4,
@@ -300,45 +244,14 @@ def get_widgets():
         widget.Battery(
             battery_name='BAT1',
             format='{percent:2.0%}',
-            foreground=catppuccin['mauve'],
-            padding=5,
-            ),
-        #widget.Memory(
-        #    format=" {MemUsed:.0f}{mm}",
-        #    foreground=catppuccin['mauve'],
-        #    background=catppuccin['base'],
-        #    padding=5,
-        #    ),
-        widget.CPU(
-            format="󰍛 {load_percent}%",
-            foreground=catppuccin['blue'],
-            background=catppuccin['base'],
-            padding=5,
-            ),
-        # widget.Backlight(
-        #     foreground=catppuccin['blue'],
-        #     backlight_name='intel_backlight',
-        #     step=10,
-        #     ),
-        widget.Spacer(
-            length=1,
-            background=catppuccin['base'],
-            ),
-        widget.DF(
-            foreground=catppuccin['teal'],
-            format=' {f}{m}',
-            measure='G',
-            partition='/',
-            update_interval=60,
-            visible_on_warn=False,
+            foreground=colors[1],
             padding=5,
             ),
         widget.Spacer(
             length=1,
-            background=catppuccin['base'],
             ),
         widget.Wlan(
-            foreground=catppuccin['green'],
+            foreground=colors[1],
             format='󰤯 {essid}',
             disconnected_message='󰤮 Offline',
             interface='wlan0',
@@ -346,41 +259,32 @@ def get_widgets():
             ),
         widget.Spacer(
             length=1,
-            background=catppuccin['base'],
             ),
         widget.PulseVolume(
             fmt=" {}",
-            foreground=catppuccin['yellow'],
-            background=catppuccin['base'],
+            foreground=colors[1],
             padding=5,
             ),
         widget.Spacer(
             length=1,
-            background=catppuccin['base'],
             ),
         widget.Clock(
             format=" %I:%M %p",
-            foreground=catppuccin["peach"],
-            background=catppuccin["base"],
+            foreground=colors[1],
             padding=5,
             ),
         widget.Spacer(
-            length=5,
-            background=catppuccin['base'],
+            length=10,
             ),
-        widget.Spacer(
-            length=6,
-            background=catppuccin['red'],
-            ),
-        widget.TextBox(
-            text=" ",
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /home/tsukki/.config/rofi/deathemonic/bin/powermenu")},
-            fontsize=15,
-            background=catppuccin["red"],
-            foreground=catppuccin["base"],
-            font='Fira Code Nerd Font Bold',
-            padding=5,
-            ),
+        # widget.TextBox(
+        #     text=" ",
+        #     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /home/tsukki/.config/rofi/deathemonic/bin/powermenu")},
+        #     fontsize=15,
+        #     background=colors[1],
+        #     foreground=colors[0],
+        #     font='Fira Code Nerd Font Bold',
+        #     padding=5,
+        #     ),
             ]
     return widgets
 
@@ -389,7 +293,6 @@ screens = [
         top=bar.Bar(
             get_widgets(),
             26,
-            background=catppuccin['base'],
         ),
     ),
 ]

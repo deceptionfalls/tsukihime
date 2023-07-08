@@ -19,41 +19,33 @@ Caps_Lock
 	/home/tsukki/.config/dunst/dunst_caps_lock.sh
 
 # rofi or dmenu
-super + @space
-	dmenu_run -c -bw 2 -l 20 -g 4
+super + shift + Return
+	rofi -show drun
 
 #
 # mpd
 #
 
 # next
-super + p
-    mpc --host 192.168.100.201 --port 6601 next
+super + shift + p
+    mpc --host localhost --port 6601 next
 
 # prev
-super + o
-    mpc --host 192.168.100.201 --port 6601 prev
+super + shift + o
+    mpc --host localhost --port 6601 prev
 
 # toggle
-super + i
-    mpc --host 192.168.100.201 --port 6601 toggle
-
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+super + shift + i
+    mpc --host localhost --port 6601 toggle
 
 #
 # brightness
 #
 
-# 100%
-super + shift + p
-    backlight_control 100 && notify-send 'Power Manager' 'Brightness is now 100%' -t 1500
-
 # 50%
-super + shift + o
-    backlight_control 50 && notify-send 'Power Manager' 'Brightness is now 50%' -t 1500
+super + shift + k
+    backlight_control 50 && notify-send 'Brightness is now 50%' -t 1500
 
 # 10%
-super + shift + i
-    backlight_control 10 && notify-send 'Power Manager' 'Brightness is now 10%' -t 1500
+super + shift + l
+    backlight_control 10 && notify-send 'Brightness is now 10%' -t 1500

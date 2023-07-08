@@ -6,15 +6,18 @@ let maplocalleader = ' '
 
 set encoding=UTF-8
 set term=screen-256color
-set termguicolors
 set laststatus=2
 set noshowmode
 set number
 set showcmd
+
+" Highlight searched words
 set showmatch
 set hlsearch
-set wrap
+
+" Line Break
 set linebreak
+set wrap
 set wrapmargin=80
 
 " Intellisense settings
@@ -57,6 +60,7 @@ call plug#begin('~/.vim/plugged')
 
 " Colorscheme
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'dylanaraps/wal.vim'
 
 " NERDtree for file browsing
 Plug 'preservim/nerdtree' |
@@ -97,10 +101,16 @@ Plug 'mhinz/vim-startify'
 " Highlight on yank
 Plug 'machakann/vim-highlightedyank'
 
+" Surround
+Plug 'tpope/vim-surround'
+
+" Discord RPC
+Plug 'vbe0201/vimdiscord'
+
 call plug#end()
 
 " Colorscheme
-colorscheme catppuccin_macchiato
+colorscheme wal
 
 " Quit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -139,12 +149,11 @@ map <leader>s :setlocal spell! spelllang=en_au<CR>
 noremap <leader>u :make % <CR>:cwindow<CR>:redraw!<CR>
 noremap <leader>ui :make --fix % <CR>:cwindow<CR>:redraw!<CR>
 
-
 " Intellisense
 inoremap <expr> <C-k> pumvisible() ? "<C-p>" :"<Up>"
 inoremap <expr> <C-j> pumvisible() ? "<C-n>" :"<Down>"
 inoremap <expr> <C-h> pumvisible() ? "<C-y>" :"<Right>"
-inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<Right>"
+inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
 inoremap <expr> <C-l> pumvisible() ? "<C-e>" :"<Left>"
 
 " Goyo
@@ -152,3 +161,9 @@ map <silent> <leader>z :Goyo<cr>
 
 " NERDTree 
 map <leader>e :NERDTreeToggle<CR>
+
+" Pywal for lightline
+set laststatus=2
+let g:lightline = {
+       \ 'colorscheme': 'wal',
+       \ }
