@@ -25,6 +25,7 @@ pkgs=(
   firefox
   alacritty
   fish
+  zsh
   dunst
   ranger
   flatpak
