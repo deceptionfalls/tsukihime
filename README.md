@@ -5,18 +5,13 @@ My personal dotfiles repository. The purpose of this repository is to function a
 
 ### My current programs
 - **Window Manager**: Qtile
-- **Terminal Emulator**: Alacritty
-- **Text Editor**: Lunarvim 
-- **App Launcher**: Dmenu
-- **File Explorer**: PCmanFM(GUI), Ranger(TUI)
-- **Shell**: Fish (with starship prompt)
-- **Music Player**: mpd with ncmpcpp as a client
-
-### Terminal scrips that I use
-- **neofetch** for checking specs.
-- **cmatrix** for the matrix code effect.
-- **pokemon-colorscripts** for showing the pokemon sprite.
-- **[shell-color-scripts](https://gitlab.com/dwt1/shell-color-scripts)** for getting a random ASCII when the terminal boots up.
+- **Terminal Emulator**: Kitty
+- **Text Editor**: Vim 
+- **App Launcher**: Rofi
+- **File Explorer**: PCmanFM(GUI), `ranger`(TUI)
+- **Shell**: `zsh`
+- **Music Player**: `mpd` with `ncmpcpp` as a client
+- **pfetch**: for checking specs.
 
 ### Setup
 This repo comes with a `install-script.sh` script that installs most dependencies for the programs I use. This script also will install `yay` and has a prompt for copying wallpapers from my wallpapers repository. 
