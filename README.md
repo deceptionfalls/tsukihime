@@ -1,5 +1,5 @@
 # Dotfiles
-![https://imgur.com/gallery/BQWebty](https://i.imgur.com/GrXRZpS.png)
+![https://i.imgur.com/HkYvFNa.mp4](https://i.imgur.com/HkYvFNa.mp4)
 
 My personal dotfiles repository. The purpose of this repository is to function as both a backup and as a way for people to freely inspect my configs. Some of the files here are for mostly, my personal use but anyone can freely clone this repository to use it as they see fit. Many configs here can change time to time, and what I use may change as well.
 
