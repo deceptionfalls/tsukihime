@@ -6,7 +6,7 @@ My personal dotfiles repository. The purpose of this repository is to function a
 ### My current programs
 - **Window Manager**: Qtile
 - **Terminal Emulator**: Kitty
-- **Text Editor**: Vim 
+- **Text Editor**: Vim and Nvim (I tend to switch back and forth quite a lot)
 - **App Launcher**: Rofi
 - **File Explorer**: PCmanFM(GUI), `ranger`(TUI)
 - **Shell**: `zsh`
