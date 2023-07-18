@@ -1,6 +1,7 @@
 from typing import List
 import os
 import subprocess
+from os import path
 
 from libqtile import qtile, layout, bar, hook, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
@@ -8,9 +9,66 @@ from libqtile.command import lazy
 from libqtile.lazy import lazy
 
 from qtile_extras import widget
+from qtile_extras.widget.decorations import PowerLineDecoration
+
+import colors
+
+colors, backgroundColor, foregroundColor, workspaceColor, chordColor = colors.oxocarbon()
 
 mod = "mod4"
-terminal = "kitty"
+terminal = "wezterm"
+
+########## Powerline from extras ########
+
+arrow_powerlineRight = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_right",
+            size=11,
+        )
+    ]
+}
+arrow_powerlineLeft = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_left",
+            size=11,
+        )
+    ]
+}
+rounded_powerlineRight = {
+    "decorations": [
+        PowerLineDecoration(
+            path="rounded_right",
+            size=11,
+        )
+    ]
+}
+rounded_powerlineLeft = {
+    "decorations": [
+        PowerLineDecoration(
+            path="rouded_left",
+            size=11,
+         )
+    ]
+}
+slash_powerlineRight = {
+    "decorations": [
+        PowerLineDecoration(
+            path="forward_slash",
+            size=11,
+        )
+    ]
+}
+slash_powerlineLeft = {
+    "decorations": [
+        PowerLineDecoration(
+            path="back_slash",
+            size=11,
+        )
+    ]
+}
+
 
 @hook.subscribe.startup_once
 def autostart():
@@ -106,6 +164,18 @@ keys = [
     Key([mod], "period", lazy.next_screen()),
     Key([mod], "comma", lazy.prev_screen()),
 
+# Apps
+    Key([mod], "w", lazy.spawn("firefox")),
+    Key([mod], "e", lazy.spawn("pcmanfm")),
+    Key([mod], "q", lazy.spawn("flameshot gui")),
+
+    Key([mod, "shift"], "q", lazy.spawn("betterlockscreen -l")),
+
+    Key([mod, "shift"], "p", lazy.spawn("mpc --host localhost --port 8800 next")),
+    Key([mod, "shift"], "o", lazy.spawn("mpc --host localhost --port 8800 prev")),
+    Key([mod, "shift"], "i", lazy.spawn("mpc --host localhost --port 8800 toggle")),
+
+    Key([mod, "shift"], "return", lazy.spawn("rofi -show drun")),
 ]
 
 # Create labels for groups and assign them a default layout.
@@ -113,10 +183,10 @@ groups = []
 
 group_names = ["1", "2", "3", "4", "5", "6"]
 
-group_labels = ["", "", "󰭹", "󰉋", "", "󰍳"]
-# group_labels = ["1", "2", "3", "4", "5", "6"]
+# group_labels = ["", "", "󰭹", "󰉋", "", "󰍳"]
+group_labels = ["1", "2", "3", "4", "5", "6"]
 
-group_layouts = ["monadtall", "monadtall", "max", "monadtall", "columns", "max"]
+group_layouts = ["monadtall", "monadtall", "max", "monadtall", "monadtall", "max"]
 
 # Add group names, labels, and default layouts to the groups object.
 for i in range(len(group_names)):
@@ -138,13 +208,12 @@ for i in groups:
 
 # Define scratchpads
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", "kitty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("term2", "kitty --class=scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("ranger", "kitty --class=ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("volume", "kitty --class=volume -e alsamixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("mus", "kitty --class=mus -e ncmpcpp", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("term", "wezterm start --class scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("term2", "wezterm start --class scratch2", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("ranger", "wezterm start --class ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("volume", "wezterm start --class volume -e alsamixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("mus", "wezterm start --class mus -e ncmpcpp", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
 ]))
-
 # Scratchpad keybindings
 keys.extend([
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('term')),
@@ -154,42 +223,39 @@ keys.extend([
     Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('mus')),
 ])
 
-#Colors
-colors = []
-cache='/home/tsukki/.cache/wal/colors'
-def load_colors(cache):
-    with open(cache, 'r') as file:
-        for i in range(8):
-            colors.append(file.readline().strip())
-    colors.append('#ffffff')
-    lazy.reload()
-load_colors(cache)
+#pywal
+# colors = []
+# cache='/home/tsukki/.cache/wal/colors'
+# def load_colors(cache):
+#     with open(cache, 'r') as file:
+#         for i in range(8):
+#             colors.append(file.readline().strip())
+#     colors.append('#ffffff')
+#     lazy.reload()
+# load_colors(cache)
 
 # Define layouts and layout themes
 layout_theme = {
-    "margin":5,
+    "margin":10,
     "border_width": 4,
-    "border_focus": colors[3],
+    "border_focus": colors[5],
     "border_normal": colors[1]
 }
 
 layouts = [
     layout.MonadTall(**layout_theme),
-    layout.MonadWide(**layout_theme),
+    # layout.MonadWide(**layout_theme),
     # layout.MonadThreeCol(**layout_theme),
     # layout.Floating(**layout_theme),
     # layout.Spiral(**layout_theme),
     # layout.RatioTile(**layout_theme),
-    layout.Max(**layout_theme)
+    # layout.Bsp(**layout_theme),
+    layout.Max(margin=0)
 ]
 
-# Mouse callback functions
-def powermenu():
-    qtile.cmd_spawn("./rofi/powermenu.rasi")
-
 widget_defaults = dict(
-    font="FiraCode Nerd Font Bold",
-    fontsize=13,
+    font="JetBrains Mono Bold",
+    fontsize=14,
     padding=5,
     background=colors[0],
 )
@@ -208,83 +274,77 @@ def get_widgets():
             disable_drag=True,
             borderwidth=3,
             highlight_method='text',
-            active=colors[1],
-            this_current_screen_border=colors[2],
+            active=colors[7],
+            this_current_screen_border=colors[5],
             urgent_border=colors[0],
+            padding=6,
             ),
         widget.Spacer(
+            ),
+        widget.Spacer(
+            background=colors[0],
+            length=7,
+            **rounded_powerlineRight,
             ),
         widget.Mpd2(
             play_states={'pause': '', 'play': '󰏦', 'stop': '󰙧'},
-            status_format='{play_status} {artist} - {title}',
-            port='6601',
+            status_format='{play_status} {title}',
+            port='8800',
             host='localhost',
             no_connection='Offline',
-            foreground=colors[1],
-            padding=5,
+            background=colors[3],
+            foreground=colors[0],
+            padding=10,
             ),
         widget.Spacer(
+            background=colors[3],
+            length=7,
+            **rounded_powerlineRight,
             ),
          widget.UPowerWidget(
             battery_height=9,
             percentage_low=0.90,
             battery_name="BAT1",
-            fill_charge=colors[1],
-            fill_critical=colors[2],
-            fill_low=colors[1],
-            fill_normal=colors[1],
-            border_colour=colors[1],
-            border_charge_colour=colors[1],
-            border_critical_colour=colors[2],
-            foreground=colors[1],
-            text_charging='{percentage:.0f}%',
-            text_discharging='{percentage:.0f}%',
+            fill_charge=colors[0],
+            fill_critical=colors[0],
+            fill_low=colors[0],
+            fill_normal=colors[0],
+            border_colour=colors[0],
+            border_charge_colour=colors[0],
+            border_critical_colour=colors[0],
+            background=colors[5],
             margin=4,
             ),
         widget.Battery(
+            foreground=colors[0],
+            background=colors[5],
             battery_name='BAT1',
             format='{percent:2.0%}',
-            foreground=colors[1],
-            padding=5,
             ),
         widget.Spacer(
-            length=1,
-            ),
-        widget.Wlan(
-            foreground=colors[1],
-            format='󰤯 {essid}',
-            disconnected_message='󰤮 Offline',
-            interface='wlan0',
-            padding=3,
-            ),
-        widget.Spacer(
-            length=1,
+            background=colors[5],
+            length=7,
+            **rounded_powerlineRight,
             ),
         widget.PulseVolume(
-            fmt=" {}",
-            foreground=colors[1],
-            padding=5,
+            foreground=colors[0],
+            background=colors[7],
+            fmt="  {}",
             ),
         widget.Spacer(
-            length=1,
+            length=7,
+            **rounded_powerlineRight,
+            background=colors[7],
             ),
         widget.Clock(
-            format=" %I:%M %p",
-            foreground=colors[1],
-            padding=5,
+            foreground=colors[0],
+            background=colors[9],
+            format="  %I:%M %p",
             ),
         widget.Spacer(
-            length=10,
+            background=colors[9],
+            length=20,
             ),
-        # widget.TextBox(
-        #     text=" ",
-        #     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /home/tsukki/.config/rofi/deathemonic/bin/powermenu")},
-        #     fontsize=15,
-        #     background=colors[1],
-        #     foreground=colors[0],
-        #     font='Fira Code Nerd Font Bold',
-        #     padding=5,
-        #     ),
             ]
     return widgets
 

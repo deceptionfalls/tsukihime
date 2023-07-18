@@ -15,18 +15,13 @@ set showcmd
 set showmatch
 set hlsearch
 
-" Line Break
-set linebreak
-set wrap
-set wrapmargin=80
-
 " Intellisense settings
 set complete+=kspell
 set completeopt=menuone,longest
 set shortmess+=c
 
 " Clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " No auto commenting
 set formatoptions-=cro
@@ -43,10 +38,6 @@ set softtabstop=2
 set tabstop=2
 
 syntax on
-
-" Lightline colorscheme
-let g:lightline = { 'colorscheme': 'catppuccin_macchiato', }
-
 " Make hidden directories shown by default
 let g:NERDTreeShowHidden=1
 
@@ -58,7 +49,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Colorscheme
+" Colorschemes
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'dylanaraps/wal.vim'
 
@@ -83,17 +74,15 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'amix/vim-zenroom2'
 
-" Javascript support
-Plug 'pangloss/vim-javascript'
+" Webdev Tools
 Plug 'w0rp/ale'
 Plug 'yuezk/vim-js'
+Plug 'posva/vim-vue' 
+Plug 'mattn/emmet-vim'
 
 " Markdown support
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
-
-" HTML Snippets
-Plug 'mattn/emmet-vim'
 
 " Splash Screen
 Plug 'mhinz/vim-startify'
@@ -105,7 +94,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-surround'
 
 " Discord RPC
-Plug 'vbe0201/vimdiscord'
+Plug 'Stoozy/vimcord'
 
 call plug#end()
 

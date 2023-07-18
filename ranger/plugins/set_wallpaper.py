@@ -26,6 +26,9 @@ class set_wallpaper(Command):
             theme_path = '/home/tsukki/.themes/oomox-colors-oomox'
             os.system(f'xfconf-query -c xfwm4 -p /general/theme -s {theme_path} > /dev/null 2>&1')
 
+            # Reload Discord theme
+            os.system(f'pywal-discord')
+
             self.fm.notify('Wallpaper set successfully!')
         else:
             self.fm.notify('Selected file is not an image.')

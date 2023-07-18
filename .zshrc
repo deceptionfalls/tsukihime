@@ -4,6 +4,8 @@ export EDITOR="vim"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
+setxkbmap br
+
 # SET VI MODE
 bindkey -v
 
@@ -145,6 +147,12 @@ alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
+# tailwind
+alias tailwind='npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch'
+
+# lmao
+alias nano='vim'
+
 # imitating fish
 bindkey -s "^[l" "ls\n" # alt + l for ls
 bindkey -s "^[s" "sudo " # alt + s for sudo
@@ -156,8 +164,8 @@ bindkey -s "^[n" "pfetch\n" # alt + n for pfetch
 eval "$(starship init zsh)"
 
 # pywal
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+# (cat ~/.cache/wal/sequences &)
+# source ~/.cache/wal/colors-tty.sh
 
 # plugins
 source ~/.zplug/init.zsh

@@ -7,10 +7,13 @@ function run {
   fi
 }
 
-#start sxhkd to replace Qtile native key-bindings
+# keyboard layout
+setxkbmap br
+
+# start sxhkd to replace Qtile native key-bindings
 run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
 
-#start mpd
+# start mpd
 [ ! -s ~/.config/mpd/pid ] && mpd &
 
 wal -R & 
@@ -18,5 +21,5 @@ wal -R &
 xfce4-power-manager &
 xsettingsd &
 dunst &
-#starting utility applications at boot time
+# starting utility applications at boot time
 picom --config $HOME/.config/picom.conf &
