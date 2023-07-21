@@ -2,25 +2,27 @@
 ncmpcpp_directory = ~/.config/ncmpcpp
 lyrics_directory = ~/.lyrics
 mpd_host = localhost
-mpd_port = 6601
+mpd_port = 8800
 mpd_connection_timeout = 5
 mpd_music_dir = ~/Music
 
 # visual
-playlist_display_mode = classic
-now_playing_prefix = "$6>>$6 "
-song_list_format = "{$6%6a$6}{ $1--$6 $6%t$6}|{%f}$R$1%l$6"
-song_status_format = %f
-song_library_format = "{{%a - %t} (%b)}|{%f}"
-browser_playlist_prefix = "$3 ~ $3 "
-song_window_title_format = "{{%a - }%t}|{%f}"
+now_playing_prefix = "$b$2$7 "
+now_playing_suffix = "  $/b$8"
+current_item_prefix = "$b$7$/b$3 "
+current_item_suffix = "  $8"
+
+song_columns_list_format = "(50)[]{t|fr:Title} (0)[magenta]{a}"
+song_list_format = " {%t $R  $8%a$8}|{%f $R   $8%l$8} $8"
+song_status_format = "$b$2󰣐 $7 {$b$6$8 %t $6} $7 $8"
+song_window_title_format = "Now Playing .."
 
 # bar
-#progressbar_look = ───
+progressbar_look = ───
 #progressbar_look = "━ "
 #progressbar_look = "=> "
 #progressbar_look = "┅┅┄"
-progressbar_look = "█▓▒"
+# progressbar_look = "█▓▒"
 #progressbar_look = "▪▪▫"
 #progressbar_look = "─>─"
 #progressbar_look = ""
@@ -63,6 +65,8 @@ seek_time = 5
 # vis
 visualizer_in_stereo = yes
 visualizer_output_name = fifo
-visualizer_type = ellipse
-visualizer_color = blue, cyan, green, yellow, magenta, red
-visualizer_look = "∙│"
+visualizer_fps = "60"
+visualizer_type = "wave"
+visualizer_look = "∗▐"
+visualizer_color = "199,200,201,202,166,130,94,58,22"
+visualizer_spectrum_smooth_look = "yes"
