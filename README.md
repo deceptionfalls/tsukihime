@@ -1,20 +1,17 @@
 # Dotfiles
-![](https://raw.githubusercontent.com/tsukki9696/dotfiles/main/rices.gif)
+![](https://raw.githubusercontent.com/tsukki9696/dotfiles/main/le%20rice.png)
 
 My personal dotfiles repository. The purpose of this repository is to function as both a backup and as a way for people to freely inspect my configs. Some of the files here are for mostly, my personal use but anyone can freely clone this repository to use it as they see fit. Many configs here can change time to time, and what I use may change as well.
 
 ### My current programs
 - **Window Manager**: Qtile
-- **Terminal Emulator**: Kitty
-- **Text Editor**: Vim and Nvim (I tend to switch back and forth quite a lot)
+- **Terminal Emulator**: Wezterm
+- **Text Editor**: Nvim
 - **App Launcher**: Rofi
 - **File Explorer**: PCmanFM(GUI), `ranger`(TUI)
 - **Shell**: `zsh`
 - **Music Player**: `mpd` with `ncmpcpp` as a client
-- **pfetch**: for checking specs.
-
-### Pywal
-My current `pywal` setup is a bit cumbersome, I have a custom ranger plugin to setup a wallpaper, reload dunst, qtile and my GTK theme (powered by Oomox), but it should work in your machine as well.
+- **neofetch**: for checking specs.
 
 ### Setup
 This repo comes with a `install-script.sh` script that installs most dependencies for the programs I use. This script also will install `yay` and has a prompt for copying wallpapers from my wallpapers repository. 
