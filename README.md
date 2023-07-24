@@ -5,13 +5,13 @@ My personal dotfiles repository. The purpose of this repository is to function a
 
 ### My current programs
 - **Window Manager**: Qtile
-- **Terminal Emulator**: Kitty
-- **Text Editor**: Vim and Nvim (I tend to switch back and forth quite a lot)
+- **Terminal Emulator**: Wezterm
+- **Text Editor**: Nvim
 - **App Launcher**: Rofi
 - **File Explorer**: PCmanFM(GUI), `ranger`(TUI)
 - **Shell**: `zsh`
 - **Music Player**: `mpd` with `ncmpcpp` as a client
-- **pfetch**: for checking specs.
+- **neofetch**: for checking specs.
 
 ### Pywal
 My current `pywal` setup is a bit cumbersome, I have a custom ranger plugin to setup a wallpaper, reload dunst, qtile and my GTK theme (powered by Oomox), but it should work in your machine as well.
