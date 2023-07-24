@@ -13,9 +13,6 @@ My personal dotfiles repository. The purpose of this repository is to function a
 - **Music Player**: `mpd` with `ncmpcpp` as a client
 - **neofetch**: for checking specs.
 
-### Pywal
-My current `pywal` setup is a bit cumbersome, I have a custom ranger plugin to setup a wallpaper, reload dunst, qtile and my GTK theme (powered by Oomox), but it should work in your machine as well.
-
 ### Setup
 This repo comes with a `install-script.sh` script that installs most dependencies for the programs I use. This script also will install `yay` and has a prompt for copying wallpapers from my wallpapers repository. 
 
