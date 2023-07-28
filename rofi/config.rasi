@@ -13,8 +13,8 @@ configuration {
 @import                          "shared/fonts.rasi"
 
 * {
-    background:     #262626;
-    background-alt: #393939;
+    background:     #161616;
+    background-alt: #262626;
     foreground:     #f2f4f8;
     selected:       #be95ff;
     active:         #42be65;
