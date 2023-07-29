@@ -22,38 +22,67 @@
 
 pkgs=(
   # Core utils
-  firefox
-  alacritty
-  fish
+  librewolf
+  wezterm-git
   zsh
+  zsh-syntax-highlighting-git
+  xfce4-power-manager
+  xclip
+  xclicker
+  xarchiver
+  ttf-firacode-nerd
+  ttf-hack
+  ttf-iosevka-nerd
+  ttf-jetbrains-mono
+  ttf-jetbrains-mono-nerd
+  ttf-joypixels
+  ttf-koruri
+  ttf-material-design-icons-extended
+  ttf-noto-fonts-simple
+  ttf-twemoji
+  timidity++
+  sddm
+  sddm-sugar-candy-git
+  reflector
+  qbittorrent
+  plymouth
+  plymouth-theme-archlinux
+  posy-cursors
+  papirus-folders
+  papirus-icon-theme
+  openssh
+  pcmanfm
+  lxappearance
+  flameshot
+  elementary-icon-theme
+  blueman
+  bluez
+  betterlockscreen
+  backlight_control
   dunst
   ranger
-  flatpak
   qview
   neovim
   ufw
-  # Langs
   lua
   nodejs
   npm
-  python
-  # Leisure
   mpd
   mpv
   mpc
   ncmpcpp
   neofetch
-  # Other tools
   sxhkd
   tmux
   picom
   starship
   exa
+  zoxide
   bat
   bat-extras
   rofi
   p7zip
-  # Qtile dependencies
+  python
   python-wifi
   python-mpd2
   python-dbus-next
