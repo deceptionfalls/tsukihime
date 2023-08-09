@@ -124,7 +124,6 @@ IFS=$SAVEIFS
 # Changing "cd" to "zoxide"
 alias cd='z'
 alias ci='zi'
-alias cdd='z ..'
 
 # Changing "ls" to "exa"
 alias ls='exa -al --color=always --group-directories-first' # my preferred listing
@@ -165,9 +164,6 @@ alias rm='rm -i'
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias ncmpcpp='ncmpcpp ncmpcpp_directory=$HOME/.config/ncmpcpp/'
-
-# Merge Xresources
-alias merge='xrdb -merge ~/.Xresources'
 
 # git
 alias addup='git add -u'
