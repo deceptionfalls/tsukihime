@@ -10,7 +10,7 @@ function run {
 # start mpd
 [ ! -s ~/.config/mpd/pid ] && mpd &
 
-./../.fehbg &
+./.fehbg &
 xfce4-power-manager &
 xsettingsd &
 dunst &

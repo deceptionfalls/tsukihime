@@ -19,7 +19,7 @@ terminal = guess_terminal()
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser("~/.config/qtile/autostart.sh")
+    home = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
     subprocess.run([home])
 
 # Define your apps here to use later in keybinds
@@ -117,7 +117,7 @@ groups = [
         Group("3", layout="monadtall", matches=[Match(wm_class="pcmanfm")]),
         Group("4", layout="monadtall"),
         Group("5", layout="monadtall"),
-        Group("6", layout="monadtall"),
+        Group("6", layout="max", matches=[Match(wm_class="pcsx2-qt")]),
         ]
 
 # This makes our group labels change dynamically
@@ -157,15 +157,12 @@ keys.extend([
 # Define layouts and layout themes
 layout_theme = {
     "margin":8,
-    "border_width": 4,
+    "border_width": 3,
     "border_focus": colors[5],
     "border_normal": colors[1]
 }
 
-layouts = [
-    layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
-]
+layouts = [ layout.MonadTall(**layout_theme), layout.Max(**layout_theme) ]
 
 widget_defaults = dict(
     font="JetBrains Mono Bold",
