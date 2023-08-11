@@ -8,14 +8,13 @@ from libqtile import qtile, layout, bar, hook, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.command import lazy
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 from qtile_extras import widget
 
 # Colors from the colors.py file
 colors, backgroundColor, foregroundColor, workspaceColor, chordColor = colors.oxocarbon()
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "wezterm"
 
 @hook.subscribe.startup_once
 def autostart():
@@ -110,14 +109,14 @@ keys = [
     Key([mod, "shift"], "i", lazy.spawn(Music.toggle)),
 ]
 
-# Create labels for groups and assign them a default layout.
+# Our groups and which apps go on specific groups
 groups = [
-        Group("1", layout="monadtall", matches=[Match(wm_class="firefox")]),
-        Group("2", layout="monadtall", matches=[Match(wm_class="discord")]),
-        Group("3", layout="monadtall", matches=[Match(wm_class="pcmanfm")]),
+        Group("1", layout="monadtall", matches=[Match(wm_class=Apps.browser)]),
+        Group("2", layout="monadtall", matches=[Match(wm_class=Apps.chatapp)]),
+        Group("3", layout="monadtall", matches=[Match(wm_class=Apps.filemanager)]),
         Group("4", layout="monadtall"),
         Group("5", layout="monadtall"),
-        Group("6", layout="max", matches=[Match(wm_class="pcsx2-qt")]),
+        Group("6", layout="max", matches=[Match(wm_class="pcsx2-qt" "prismlauncher")]),
         ]
 
 # This makes our group labels change dynamically
