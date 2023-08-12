@@ -1,5 +1,5 @@
 # Dotfiles
-![](https://raw.githubusercontent.com/tsukki9696/dotfiles/main/2023-08-10_17-25.png)
+![](https://github.com/tsukki9696/dotfiles/blob/4599d991a0e7520889a12020f0d58cbd62145e05/2023-08-11_16-49.png)
 
 My personal dotfiles repository. The purpose of this repository is to function as both a backup and as a way for people to freely inspect my configs. Some of the files here are for mostly, my personal use but anyone can freely clone this repository to use it as they see fit. Many configs here can change time to time, and what I use may change as well.
 
