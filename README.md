@@ -23,56 +23,6 @@ This repo comes with a `install-script.sh` script that installs most dependencie
 # Insert what you wanna install here
 
 pkgs=(
-    # Core utils
-    firefox
-    alacritty
-    fish
-    dunst
-    ranger
-    flatpak
-    qview
-    neovim
-    ufw
-    # Langs
-    lua
-    nodejs
-    npm
-    python
-    # Leisure
-    mpd
-    mpv
-    mpc
-    ncmpcpp
-    neofetch
-    # Other tools
-    sxhkd
-    tmux
-    picom
-    starship
-    exa
-    bat
-    bat-extras
-    rofi
-    p7zip
-    # Qtile dependencies
-    python-wifi
-    python-mpd2
-    python-dbus-next
-    python-requests
-    python-cffi
-    wireless_tools
-    python-setuptools
-    python-pytest
-    python-iwlib
-    python-psutil
+    stuff you want here
 )
 ```
-
-## Questions
-
-### How do I setup polybar?
-`bash ~/.config/polybar/launch.sh --blocks` should work.
-
-### Where can I find the wallpapers you use?
-https://github.com/tsukki9696/wallpapers contains everything that I use (none of the wallpapers are mine and I do not claim ownership of them).
-
