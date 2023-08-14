@@ -1,5 +1,5 @@
 #   Colors.py
-#   Here you can assign and create your own colorschemes and reference them externally in Qtile
+#   Here you can assign and create your own colorschemes and reference them externally
 
 def oxocarbon():
         colors = [["#161616", "#161616"],  #background (dark grey) [0]

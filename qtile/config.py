@@ -1,8 +1,14 @@
+# Magatama, the Qtile configuration to rule them all
+# Made by @tsukki9696
+
+#-----------
 # Imports
+#-----------
 import os
 import subprocess
 import colors
 
+from os import path
 from typing import List
 from libqtile import qtile, layout, bar, hook, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
@@ -10,35 +16,50 @@ from libqtile.command import lazy
 from libqtile.lazy import lazy
 from qtile_extras import widget
 
-# Colors from the colors.py file
+#-----------
+# User Settings
+#-----------
+
+# Colorscheme, refer to colors.py
+# Change the 'oxocarbon' to whatever other theme there, you can even create your own
+# Colorscheme and use it in this rice
 colors, backgroundColor, foregroundColor, workspaceColor, chordColor = colors.oxocarbon()
 
+# Modkey for keybinds, "mod4" refers to the Super or Windows keys
 mod = "mod4"
-terminal = "wezterm"
 
+# Define your apps here to use later in keybinds
+# Same thing for music controls
+class Apps:
+    terminal = "wezterm"
+    launcher = "rofi -show drun"
+    browser = "firefox"
+    filemanager = "pcmanfm"
+    chatapp = "armcord"
+    screenshotter = "flameshot gui"
+    lockscreen = "betterlockscreen -l"
+
+class Music:
+    next = "mpc --host localhost --port 8800 next"
+    prev = "mpc --host localhost --port 8800 prev"
+    toggle = "mpc --host localhost --port 8800 toggle"
+    volup = "pulsemixer --change-volume +10"
+    voldown = "pulsemixer --change-volume -10"
+    mute = "pulsemixer --toggle-mute"
+
+# Autostart script, for starting important apps, refer to autostart.sh
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
     subprocess.run([home])
 
-# Define your apps here to use later in keybinds
-class Apps:
-    launcher = "rofi -show drun"
-    browser = "firefox"
-    filemanager = "pcmanfm"
-    chatapp = "discord"
-    screenshotter = "flameshot gui"
-    lockscreen = "betterlockscreen -l"
-
-# Same thing but for music controls
-class Music:
-    next = "mpc --host localhost --port 8800 next"
-    prev = "mpc --host localhost --port 8800 prev"
-    toggle = "mpc --host localhost --port 8800 toggle"
+#-----------
+# Keybindings
+#-----------
 
 keys = [
 # Open terminal
-    Key([mod], "Return", lazy.spawn(terminal)),
+    Key([mod], "Return", lazy.spawn(Apps.terminal)),
 
 # Qtile System Actions
     # Key([mod, "shift"], "r", lazy.restart()),
@@ -89,8 +110,8 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
 
 # Switch focus to specific monitor
-    Key([mod], "i", lazy.to_screen(0)), 
-    Key([mod], "o", lazy.to_screen(1)),
+    Key([mod, "shift"], "i", lazy.to_screen(0)), 
+    Key([mod, "shift"], "o", lazy.to_screen(1)),
 
 # Switch focus of monitors
     Key([mod], "period", lazy.next_screen()),
@@ -104,12 +125,23 @@ keys = [
     Key([mod, "shift"], "q", lazy.spawn(Apps.lockscreen)),
     Key([mod, "shift"], "return", lazy.spawn(Apps.launcher)),
 
-    Key([mod, "shift"], "p", lazy.spawn(Music.next)),
-    Key([mod, "shift"], "o", lazy.spawn(Music.prev)),
-    Key([mod, "shift"], "i", lazy.spawn(Music.toggle)),
+# Music control
+    Key([mod], "o", lazy.spawn(Music.next)),
+    Key([mod], "u", lazy.spawn(Music.prev)),
+    Key([mod], "i", lazy.spawn(Music.toggle)),
+
+# Volume control, scuffed but it is what works for me
+    Key([mod], "t", lazy.spawn(Music.volup)),
+    Key([mod], "r", lazy.spawn(Music.voldown)),
+    Key([mod], "y", lazy.spawn(Music.mute)),
 ]
 
+#-----------
+# Groups/Workspaces
+#-----------
+
 # Our groups and which apps go on specific groups
+# If you want to find out the wm_class of a specific app, use 'xprop | grep WM_CLASS' in your terminal and select the desired window
 groups = [
         Group("1", layout="monadtall", matches=[Match(wm_class=Apps.browser)]),
         Group("2", layout="monadtall", matches=[Match(wm_class=Apps.chatapp)]),
@@ -136,6 +168,8 @@ for i in groups:
     ])
 
 # Define scratchpads
+# Refer to your terminal emulator's way to classify sessions,
+# wezterm uses 'wezterm start --class' and kitty uses 'kitty --class' for example
 groups.append(ScratchPad("scratchpad", [
     DropDown("term", "wezterm start --class scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
     DropDown("term2", "wezterm start --class scratch2", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
@@ -153,7 +187,14 @@ keys.extend([
     Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('mus')),
 ])
 
+#-----------
+# Layouts
+#-----------
+
 # Define layouts and layout themes
+# It's easier to refer to a color in the colors array that we imported from colors.py
+# than to type every single individual hex code, this also allows for possible
+# dynamic theme switching
 layout_theme = {
     "margin":8,
     "border_width": 3,
@@ -161,8 +202,14 @@ layout_theme = {
     "border_normal": colors[1]
 }
 
+# Consult the Qtile standard configuration to see other layout options
 layouts = [ layout.MonadTall(**layout_theme), layout.Max(**layout_theme) ]
 
+#-----------
+# Bar
+#-----------
+
+# Our defaults
 widget_defaults = dict(
     font="JetBrains Mono Bold",
     fontsize=14,
@@ -172,6 +219,8 @@ widget_defaults = dict(
 
 extension_defaults = widget_defaults.copy()
 
+# Our widgets
+# Refer the qtile wiki for other widget options both in the builtin widgets and in the qtile-extras repo
 def get_widgets():
     widgets = [
         widget.Spacer(length=5),
@@ -189,7 +238,16 @@ def get_widgets():
             ]
     return widgets
 
+# Define our screens, I occasionally use two monitors so there's why we have two screens here
+# you're free to remove and add as needed
 screens = [
+    Screen(
+        top=bar.Bar(
+            get_widgets(),
+            30,
+            margin=8,
+       ),
+    ),
     Screen(
         top=bar.Bar(
             get_widgets(),
@@ -199,6 +257,10 @@ screens = [
     ),
 ]
 
+#-----------
+# Mouse
+#-----------
+
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
@@ -206,24 +268,30 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front())
 ]
 
+#-----------
+# Misc
+#-----------
+
+# Which screens spawn as floating by default
+floating_layout = layout.Floating(float_rules=[
+    *layout.Floating.default_float_rules,
+    Match(wm_class='confirmreset'),  # gitk
+    Match(wm_class='qview'),  # qview
+    Match(wm_class='feh'),  # qview
+    Match(wm_class='makebranch'),  # gitk
+    Match(wm_class='maketag'),  # gitk
+    Match(wm_class='ssh-askpass'),  # ssh-askpass
+    Match(wm_class='flameshot'),
+    Match(wm_class='galculator'),
+    Match(title='branchdialog'),  # gitk
+    Match(title='pinentry'),  # GPG key password entry
+], fullscreen_border_width = 0, border_width = 0)
+
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-
-floating_layout = layout.Floating(float_rules=[
-    *layout.Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='qview'),  # qview
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(wm_class='flameshot'),
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry'),  # GPG key password entry
-], fullscreen_border_width = 0, border_width = 0)
-
 auto_fullscreen = True
 auto_minimize = True
 focus_on_window_activation = "smart"

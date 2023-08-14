@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Autostart script
+# the usual bash script to start apps
+
 function run {
   if ! pgrep $1 ;
   then
@@ -7,9 +10,8 @@ function run {
   fi
 }
 
-# start mpd
+setxkbmap br & # keyboard layout
 [ ! -s ~/.config/mpd/pid ] && mpd &
-
 ./.fehbg &
 xfce4-power-manager &
 xsettingsd &
