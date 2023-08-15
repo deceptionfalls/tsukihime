@@ -1,4 +1,4 @@
-# Magatama, the Qtile configuration to rule them all
+# Tsukihime, the Qtile configuration to rule them all
 # Made by @tsukki9696
 
 #-----------
