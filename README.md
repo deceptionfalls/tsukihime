@@ -1,5 +1,5 @@
 <h1 align=center>Tsukihime, my Arch Dotfiles 🌙</h1>
-<img src="rice.png" alt="img" align="right" width="500px">
+<img src="src/rice-3.png" alt="img" align="right" width="500px">
 
 This is my dotfiles repository containing my current qtile config, feel free to take inspiration from it or even use some of my configs.
 
