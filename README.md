@@ -1,28 +1,14 @@
-# Dotfiles
-![](https://github.com/tsukki9696/dotfiles/blob/4599d991a0e7520889a12020f0d58cbd62145e05/2023-08-11_16-49.png)
+<h1 align=center>Tsukihime, my Arch Dotfiles 🌙</h1>
+<img src="rice.png" alt="img" align="right" width="500px">
 
-My personal dotfiles repository. The purpose of this repository is to function as both a backup and as a way for people to freely inspect my configs. Some of the files here are for mostly, my personal use but anyone can freely clone this repository to use it as they see fit. Many configs here can change time to time, and what I use may change as well.
+This is my dotfiles repository containing my current qtile config, feel free to take inspiration from it or even use some of my configs.
 
-### My current programs
-- **Window Manager**: Qtile
-- **Terminal Emulator**: Wezterm
-- **Text Editor**: Nvim
-- **App Launcher**: Rofi
-- **File Explorer**: PCmanFM(GUI), `ranger`(TUI)
-- **Shell**: `zsh`
-- **Music Player**: `mpd` with `ncmpcpp` as a client
-- **neofetch**: for checking specs.
+- **window manager**: qtile
+- **terminal**: wezterm
+- **text editor**: nvim
+- **file manager**: pcmanfm
+- **shell**: zsh
+- **music player**: ncmpcpp
 
-### Setup
-This repo comes with a `install-script.sh` script that installs most dependencies for the programs I use. This script also will install `yay` and has a prompt for copying wallpapers from my wallpapers repository. 
-
-> You are encouraged to tinker with the script and tailor what you want and don't want to be installed, the script automatically bypass packages you have installed already. All packages come from the Arch User Repository, you might want to tinker with it to include packages from your distro's repository.
-
-```bash
-# List of packages
-# Insert what you wanna install here
-
-pkgs=(
-    stuff you want here
-)
-```
+## Dependencies
+I have a script that install most dependencies for this setup. This script also will install `yay` and has a prompt for cloning my wallpapers repository. This is not guaranteed to work on every machine but the script is simple enough, it should make most of the basic functionality. You are encouraged to tinker with the script and add what you want to be installed, this is intended to work on Arch based systems, since it downloads Arch and AUR packages.
