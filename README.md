@@ -10,5 +10,26 @@ This is my dotfiles repository containing my current qtile config, feel free to 
 - **shell**: zsh
 - **music player**: ncmpcpp
 
-## Dependencies
+---
+
+### Dependencies 
 I have a script that install most dependencies for this setup. This script also will install `yay` and has a prompt for cloning my wallpapers repository. This is not guaranteed to work on every machine but the script is simple enough, it should make most of the basic functionality. You are encouraged to tinker with the script and add what you want to be installed, this is intended to work on Arch based systems, since it downloads Arch and AUR packages.
+
+---
+
+### Gallery
+<details>
+<summary><b>Programs</b></summary>
+
+### GTK
+![gtk](src/rice-2.png)
+
+### Terminal
+![gtk](src/rice-1.png)
+
+### Wallpaper
+![wall](src/rice-wall.png)
+
+</details>
+
+
