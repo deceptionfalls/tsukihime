@@ -8,7 +8,6 @@ import os
 import subprocess
 import colors
 
-from os import path
 from typing import List
 from libqtile import qtile, layout, bar, hook, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
@@ -53,6 +52,12 @@ def autostart():
     home = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
     subprocess.run([home])
 
+# Function for resizing floating windows
+@lazy.function
+def resize_floating_window(qtile, width: int = 0, height: int = 0):
+    w = qtile.current_window
+    w.cmd_set_size_floating(w.width + width, w.height + height)
+
 #-----------
 # Keybindings
 #-----------
@@ -90,6 +95,13 @@ keys = [
         lazy.layout.shrink(),
         lazy.layout.increase_nmaster()
         ),
+
+# Resize floating windows with Arrow keys
+    Key([mod], "Right", resize_floating_window(width=10), desc='increase width by 10'),
+    Key([mod], "Left", resize_floating_window(width=-10), desc='decrease width by 10'),
+    Key([mod], "Up", resize_floating_window(height=10), desc='increase height by 10'),
+    Key([mod], "Down", resize_floating_window(height=-10), desc='decrease height by 10'),
+
 
 # Window Focus (Vim keys)
     Key([mod], "k", lazy.layout.up()),
