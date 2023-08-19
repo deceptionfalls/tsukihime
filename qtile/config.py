@@ -19,13 +19,14 @@ from qtile_extras import widget
 # User Settings
 #-----------
 
-# Colorscheme, refer to colors.py
-# Change the 'oxocarbon' to whatever other theme there, you can even create your own
-# Colorscheme and use it in this rice
+# Colorscheme, referenced by an external colors.py file
+# Affects bar, window decorations and widgets inside the said bar
+# Available colorschemes: oxocarbon, janleigh, rosepine, radium
 colors, backgroundColor, foregroundColor, workspaceColor, chordColor = colors.oxocarbon()
 
 # Modkey for keybinds, "mod4" refers to the Super or Windows keys
 mod = "mod4"
+# mod = "mod1" # Alt as super
 
 # Define your apps here to use later in keybinds
 # Same thing for music controls
@@ -45,12 +46,6 @@ class Music:
     volup = "pulsemixer --change-volume +10"
     voldown = "pulsemixer --change-volume -10"
     mute = "pulsemixer --toggle-mute"
-
-# Autostart script, for starting important apps, refer to autostart.sh
-@hook.subscribe.startup_once
-def autostart():
-    home = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
-    subprocess.run([home])
 
 # Function for resizing floating windows
 @lazy.function
@@ -102,7 +97,6 @@ keys = [
     Key([mod], "Up", resize_floating_window(height=10), desc='increase height by 10'),
     Key([mod], "Down", resize_floating_window(height=-10), desc='decrease height by 10'),
 
-
 # Window Focus (Vim keys)
     Key([mod], "k", lazy.layout.up()),
     Key([mod], "j", lazy.layout.down()),
@@ -153,7 +147,7 @@ keys = [
 #-----------
 
 # Our groups and which apps go on specific groups
-# If you want to find out the wm_class of a specific app, use 'xprop | grep WM_CLASS' in your terminal and select the desired window
+# If you want to find out the wm_class of a specific app, use 'xprop | grep WM_CLASS' 
 groups = [
         Group("1", layout="monadtall", matches=[Match(wm_class=Apps.browser)]),
         Group("2", layout="monadtall", matches=[Match(wm_class=Apps.chatapp)]),
@@ -163,7 +157,9 @@ groups = [
         Group("6", layout="max", matches=[Match(wm_class="pcsx2-qt" "prismlauncher")]),
         ]
 
-# This makes our group labels change dynamically
+# This makes our group labels change dynamically,
+# Qtile cannot make shapes like in Awesome, so we settle
+# for an unicode symbol repeated over for our current group
 @hook.subscribe.setgroup
 def setgroup():
     for i in range(len(groups)-1):
@@ -221,7 +217,14 @@ layouts = [ layout.MonadTall(**layout_theme), layout.Max(**layout_theme) ]
 # Bar
 #-----------
 
-# Our defaults
+# Bar configuration
+# Here we reference our colors.py file for using our chosen colorscheme,
+# remember to tweak values accordingly, I can't promise everything will look
+# perfectly out of the box, select the accent colors of your choosing,
+# refer to colors.py to see what each color is.
+
+# Our default parameters for the widgets in our bar
+# Append parameters here so you can spare yourself from repetition
 widget_defaults = dict(
     font="JetBrains Mono Bold",
     fontsize=14,
@@ -233,21 +236,27 @@ extension_defaults = widget_defaults.copy()
 
 # Our widgets
 # Refer the qtile wiki for other widget options both in the builtin widgets and in the qtile-extras repo
+# Tweak colors according to your selected colorscheme, cant promise everything looks perfect with no tweaks
 def get_widgets():
     widgets = [
         widget.Spacer(length=5),
         widget.GroupBox(
             highlight_method='text',
-            active=colors[5],
-            this_current_screen_border=colors[7],
+            inactive=colors[1],
+            active=colors[7],
+            this_current_screen_border=colors[5],
             urgent_border=colors[0],
             ),
-        widget.WindowName(),
+        widget.CurrentLayoutIcon(
+            use_mask=True,
+            scale=0.5,
+            padding=10, # Don't delete this or the bar will go transparent, for some reason
+        ),
         widget.Spacer(),
-        widget.CurrentLayout(),
         widget.Clock(format="%I:%M %p"),
         widget.Spacer(length=10),
             ]
+
     return widgets
 
 # Define our screens, I occasionally use two monitors so there's why we have two screens here
@@ -288,8 +297,8 @@ mouse = [
 floating_layout = layout.Floating(float_rules=[
     *layout.Floating.default_float_rules,
     Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='qview'),  # qview
-    Match(wm_class='feh'),  # qview
+    Match(wm_class='qview'), 
+    Match(wm_class='feh'),
     Match(wm_class='makebranch'),  # gitk
     Match(wm_class='maketag'),  # gitk
     Match(wm_class='ssh-askpass'),  # ssh-askpass
@@ -298,6 +307,12 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
 ], fullscreen_border_width = 0, border_width = 0)
+
+# Autostart script, for starting important apps, refer to autostart.sh
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
+    subprocess.run([home])
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
