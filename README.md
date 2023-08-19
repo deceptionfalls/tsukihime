@@ -12,6 +12,14 @@ This is my dotfiles repository containing my current qtile config, feel free to 
 
 ---
 
+### TODO
+- Add a better, revised list of dependencies
+- Colorscheme switching script, including a way to change wallpapers and GTK themes on the fly
+- A way to swap between multiple bar designs
+- Better documentation
+
+---
+
 ### Dependencies 
 I have a script that install most dependencies for this setup. This script also will install `yay` and has a prompt for cloning my wallpapers repository. This is not guaranteed to work on every machine but the script is simple enough, it should make most of the basic functionality. You are encouraged to tinker with the script and add what you want to be installed, this is intended to work on Arch based systems, since it downloads Arch and AUR packages.
 
