@@ -12,7 +12,6 @@ function run {
 
 setxkbmap br & # keyboard layout
 [ ! -s ~/.config/mpd/pid ] && mpd &
-./.fehbg &
 xfce4-power-manager &
 xsettingsd &
 dunst &

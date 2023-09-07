@@ -1,9 +1,11 @@
-# Tsukihime, the Qtile configuration to rule them all
+# Tsukihime
+# Simple-ish configuration for qtile, focused on functionality and elegance
 # Made by @tsukki9696
 
 #-----------
 # Imports
 #-----------
+
 import os
 import subprocess
 import colors
@@ -21,7 +23,7 @@ from qtile_extras import widget
 
 # Colorscheme, referenced by an external colors.py file
 # Affects bar, window decorations and widgets inside the said bar
-# Available colorschemes: oxocarbon, janleigh, rosepine, radium
+# Available colorschemes: oxocarbon, janleigh, rosepine, radium (more will be added)
 colors, backgroundColor, foregroundColor, workspaceColor, chordColor = colors.oxocarbon()
 
 # Modkey for keybinds, "mod4" refers to the Super or Windows keys
@@ -29,25 +31,33 @@ mod = "mod4"
 # mod = "mod1" # Alt as super
 
 # Define your apps here to use later in keybinds
-# Same thing for music controls
 class Apps:
-    terminal = "wezterm"
+    terminal = "st"
+    # Refer to your terminal emulator's way to classify sessions
+    term_cmd = "st -c "
     launcher = "rofi -show drun"
-    browser = "firefox"
-    filemanager = "pcmanfm"
-    chatapp = "armcord"
-    screenshotter = "flameshot gui"
-    lockscreen = "betterlockscreen -l"
+    browser  = "firefox"
+    files    = "pcmanfm"
+    chatapp  = "discord"
+    editor   = "nvim"
+    photos   = "photopea"
 
+# Define music related commands, mpd and audio related stuff,
+# you could map it to X86Volume keys but they dont work with my keyboard
+# so I just stick to pulsemixer
 class Music:
-    next = "mpc --host localhost --port 8800 next"
-    prev = "mpc --host localhost --port 8800 prev"
-    toggle = "mpc --host localhost --port 8800 toggle"
-    volup = "pulsemixer --change-volume +10"
-    voldown = "pulsemixer --change-volume -10"
-    mute = "pulsemixer --toggle-mute"
+    next     = "cmus-remote --next"
+    prev     = "cmus-remote --prev"
+    toggle   = "cmus-remote --pause"
+    volup    = "pulsemixer --change-volume +10"
+    voldown  = "pulsemixer --change-volume -10"
+    mute     = "pulsemixer --toggle-mute"
 
-# Function for resizing floating windows
+#-----------
+# Resizing Floating Windows
+#-----------
+
+# We have to define this up here because python is stupid
 @lazy.function
 def resize_floating_window(qtile, width: int = 0, height: int = 0):
     w = qtile.current_window
@@ -91,7 +101,7 @@ keys = [
         lazy.layout.increase_nmaster()
         ),
 
-# Resize floating windows with Arrow keys
+# Resize floating windows with Arrow keys, function down further
     Key([mod], "Right", resize_floating_window(width=10), desc='increase width by 10'),
     Key([mod], "Left", resize_floating_window(width=-10), desc='decrease width by 10'),
     Key([mod], "Up", resize_floating_window(height=10), desc='increase height by 10'),
@@ -116,7 +126,7 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.swap_right()),
 
 # Switch focus to specific monitor
-    Key([mod, "shift"], "i", lazy.to_screen(0)), 
+    Key([mod, "shift"], "i", lazy.to_screen(0)),
     Key([mod, "shift"], "o", lazy.to_screen(1)),
 
 # Switch focus of monitors
@@ -125,10 +135,7 @@ keys = [
 
 # Apps
     Key([mod], "w", lazy.spawn(Apps.browser)),
-    Key([mod], "e", lazy.spawn(Apps.filemanager)),
-    Key([mod], "q", lazy.spawn(Apps.screenshotter)),
-
-    Key([mod, "shift"], "q", lazy.spawn(Apps.lockscreen)),
+    Key([mod], "e", lazy.spawn(Apps.files)),
     Key([mod, "shift"], "return", lazy.spawn(Apps.launcher)),
 
 # Music control
@@ -136,10 +143,19 @@ keys = [
     Key([mod], "u", lazy.spawn(Music.prev)),
     Key([mod], "i", lazy.spawn(Music.toggle)),
 
-# Volume control, scuffed but it is what works for me
+# Volume control
+# scuffed but it is what works for me
     Key([mod], "t", lazy.spawn(Music.volup)),
     Key([mod], "r", lazy.spawn(Music.voldown)),
     Key([mod], "y", lazy.spawn(Music.mute)),
+
+# Screenshot
+# requires 'maim', 'slop', 'xclip'
+# because flameshot takes a whole year to boot ffs
+    # screenshot whole screen
+    Key([mod], "q", lazy.spawn("maim -m 5 | xclip -selection clipboard -t image/png", shell=True)),
+    # screenshot specific window
+    Key([mod, "shift"], "q", lazy.spawn("maim -m 5 -s | xclip -selection clipboard -t image/png", shell=True)),
 ]
 
 #-----------
@@ -147,24 +163,34 @@ keys = [
 #-----------
 
 # Our groups and which apps go on specific groups
-# If you want to find out the wm_class of a specific app, use 'xprop | grep WM_CLASS' 
+# If you want to find out the wm_class of a specific app, run 'xprop | grep WM_CLASS'
 groups = [
-        Group("1", layout="monadtall", matches=[Match(wm_class=Apps.browser)]),
-        Group("2", layout="monadtall", matches=[Match(wm_class=Apps.chatapp)]),
-        Group("3", layout="monadtall", matches=[Match(wm_class=Apps.filemanager)]),
-        Group("4", layout="monadtall"),
-        Group("5", layout="monadtall"),
-        Group("6", layout="max", matches=[Match(wm_class="pcsx2-qt" "prismlauncher")]),
-        ]
+        Group("1", layout="monadtall", matches=[Match(wm_class=Apps.browser)]),   # browser
+        Group("2", layout="monadtall", matches=[Match(wm_class=Apps.chatapp)]),   # discord
+        Group("3", layout="monadtall", matches=[Match(wm_class="obsidian")]),     # usually free space or another firefox tab for leisure
+        Group("4", layout="max", matches=[Match(wm_class=Apps.photos)]),          # photo editor
+        Group("5", layout="max", matches=[Match(wm_class="pcsx2-qt" "prismlauncher")]), # games
+    ]
 
 # This makes our group labels change dynamically,
 # Qtile cannot make shapes like in Awesome, so we settle
 # for an unicode symbol repeated over for our current group
 @hook.subscribe.setgroup
 def setgroup():
-    for i in range(len(groups)-1):
-        qtile.groups[i].label = "󰹞"
-        qtile.current_group.label = "󰹞󰹞󰹞"
+    # Omega scuffed hack to make the hook go through the length
+    # of all of our groups, then subtract one from it, so the scratchpads
+    # wont show up in the bar, then it applies our unicode magic
+    num_groups = len(qtile.groups)
+    for index, group in enumerate(qtile.groups):
+        if index == num_groups - 1:
+            continue  # Skip the last group
+        if group is qtile.current_group:
+            group.label = "󰣐"  # Currently focused group
+        else:
+            if group.windows:
+                group.label = ""  # Unfocused group with windows
+            else:
+                group.label = "󰧞"  # Unfocused empty group
 
 # Add group specific keybindings
 for i in groups:
@@ -176,14 +202,12 @@ for i in groups:
     ])
 
 # Define scratchpads
-# Refer to your terminal emulator's way to classify sessions,
-# wezterm uses 'wezterm start --class' and kitty uses 'kitty --class' for example
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", "wezterm start --class scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("term2", "wezterm start --class scratch2", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("ranger", "wezterm start --class ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("volume", "wezterm start --class volume -e alsamixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("mus", "wezterm start --class mus -e ncmpcpp", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("term", Apps.term_cmd+"scratch", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("term2", Apps.term_cmd+"scratch2", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("ranger", Apps.term_cmd+"ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("volume", Apps.term_cmd+"volume -e alsamixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("song", Apps.term_cmd+"song -e cmus", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
 ]))
 
 # Scratchpad keybindings
@@ -192,7 +216,7 @@ keys.extend([
     Key([mod, "shift"], "m", lazy.group['scratchpad'].dropdown_toggle('term2')),
     Key([mod], "b", lazy.group['scratchpad'].dropdown_toggle('ranger')),
     Key([mod], "v", lazy.group['scratchpad'].dropdown_toggle('volume')),
-    Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('mus')),
+    Key([mod], "n", lazy.group['scratchpad'].dropdown_toggle('song')),
 ])
 
 #-----------
@@ -205,19 +229,27 @@ keys.extend([
 # dynamic theme switching
 layout_theme = {
     "margin":8,
-    "border_width": 3,
-    "border_focus": colors[5],
-    "border_normal": colors[1]
+    "border_width": 16,
+    # --------------
+    # Triple Borders
+    # --------------
+    # Qtile is stupid as shit and doesnt let us regulate the width of each individual border
+    # if we have more than one, so the solution is to spam as much as we need to achieve a
+    # certain thickness. It also does not let us reference colors from colors.py
+    "border_focus": ["161616", "161616", "161616", "161616", "393939", "161616", "161616", "161616", "161616", "161616"],
+    "border_normal": ["161616", "161616", "161616", "161616", "262626", "161616", "161616", "161616", "161616", "161616"],
+    # "border_focus":colors[5], # normal borders for normal people
+    # "border_normal":colors[3],
 }
 
 # Consult the Qtile standard configuration to see other layout options
+# these are what work for me, a simple master and stack and a max layout for games
 layouts = [ layout.MonadTall(**layout_theme), layout.Max(**layout_theme) ]
 
 #-----------
 # Bar
 #-----------
 
-# Bar configuration
 # Here we reference our colors.py file for using our chosen colorscheme,
 # remember to tweak values accordingly, I can't promise everything will look
 # perfectly out of the box, select the accent colors of your choosing,
@@ -241,34 +273,25 @@ def get_widgets():
     widgets = [
         widget.Spacer(length=5),
         widget.GroupBox(
-            highlight_method='text',
+            highlight_method='text', # makes the highlights just change the group name color
             inactive=colors[1],
-            active=colors[7],
-            this_current_screen_border=colors[5],
-            urgent_border=colors[0],
-            ),
+            active=colors[5],
+            this_current_screen_border=colors[7],
+            urgent_border=colors[0], # make it the same as the background for no ugly borders
+        ),
         widget.CurrentLayoutIcon(
-            use_mask=True,
+            use_mask=True, # needs to be on for the icon to use our foreground
             scale=0.5,
-            padding=10, # Don't delete this or the bar will go transparent, for some reason
+            padding=5, # Don't delete this or the bar will go transparent, for some reason
         ),
         widget.Spacer(),
-        widget.Clock(format="%I:%M %p"),
+        widget.Clock(format="%b %d, %I:%M %p"), # Month, day of the month, current time
         widget.Spacer(length=10),
-            ]
-
+        ]
     return widgets
 
-# Define our screens, I occasionally use two monitors so there's why we have two screens here
-# you're free to remove and add as needed
+# Define our screens, you can add more if you have more monitors here
 screens = [
-    Screen(
-        top=bar.Bar(
-            get_widgets(),
-            30,
-            margin=8,
-       ),
-    ),
     Screen(
         top=bar.Bar(
             get_widgets(),
@@ -297,20 +320,27 @@ mouse = [
 floating_layout = layout.Floating(float_rules=[
     *layout.Floating.default_float_rules,
     Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='qview'), 
+    Match(wm_class='qview'),
     Match(wm_class='feh'),
     Match(wm_class='makebranch'),  # gitk
     Match(wm_class='maketag'),  # gitk
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(wm_class='flameshot'),
     Match(wm_class='galculator'),
+    Match(wm_class='Gpick'),
+    Match(wm_class='Places'), # firefox downloads screen, i like it floating
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
 ], fullscreen_border_width = 0, border_width = 0)
 
+def wallpaper():
+    path = '~/Pictures/Wallpapers/Uncategorized/flower-bw.png'
+    os.system('feh --bg-scale ' + path)
+
 # Autostart script, for starting important apps, refer to autostart.sh
 @hook.subscribe.startup_once
 def autostart():
+    wallpaper()
     home = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
     subprocess.run([home])
 
