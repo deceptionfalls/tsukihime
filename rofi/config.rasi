@@ -15,10 +15,11 @@ configuration {
 * {
     background:     #161616;
     background-alt: #262626;
-    foreground:     #f2f4f8;
-    selected:       #be95ff;
-    active:         #42be65;
-    urgent:         #ee5396;
+    background-ext: #363636;
+    foreground:     #dde1e6;
+    selected:       #ee5396;
+    active:         #ee5396;
+    urgent:         #36C692;
 }
 
 * {
@@ -54,7 +55,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       800px;
+    width:                       500px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -62,9 +63,9 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      0px solid;
+    border:                      3px solid;
     border-radius:               0px;
-    border-color:                @border-colour;
+    border-color:                @background-alt;
     cursor:                      "default";
 
     /* Backgroud Colors */
@@ -116,7 +117,7 @@ textbox-prompt-colon {
     expand:                      false;
     str:                         "::";
     background-color:            inherit;
-    text-color:                  inherit;
+    text-color:                  @background-ext;
 }
 entry {
     enabled:                     true;
@@ -154,11 +155,11 @@ case-indicator {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     2;
+    columns:                     1;
     lines:                       10;
-    cycle:                       true;
+    cycle:                       false;
     dynamic:                     true;
-    scrollbar:                   true;
+    scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
@@ -188,7 +189,7 @@ element {
     margin:                      0px;
     padding:                     5px 10px;
     border:                      0px solid;
-    border-radius:               20px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -260,7 +261,7 @@ mode-switcher{
 button {
     padding:                     5px 10px;
     border:                      0px solid;
-    border-radius:               20px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  inherit;
@@ -285,7 +286,7 @@ message {
 textbox {
     padding:                     5px 10px;
     border:                      0px solid;
-    border-radius:               20px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
@@ -299,7 +300,7 @@ textbox {
 error-message {
     padding:                     10px;
     border:                      2px solid;
-    border-radius:               20px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background-colour;
     text-color:                  @foreground-colour;
