@@ -1,5 +1,4 @@
-<img src="src/tsukihime-logo.png" alt="logo" align=center>
-<img src="src/rice-3.png" alt="img" align="right" width="500px">
+![image](https://github.com/tsukki9696/tsukihime/assets/127806743/3705b511-b8c4-4700-93b5-2e06f5b31aed)
 
 This is my dotfiles repository containing my current qtile config, feel free to take inspiration from it or even use some of my configs.
 
@@ -10,22 +9,14 @@ This is my dotfiles repository containing my current qtile config, feel free to 
 - **shell**: zsh
 - **music player**: cmus
 
----
-
-### TODO
-- Add a better, revised list of dependencies
-- Colorscheme switching script, including a way to change wallpapers and GTK themes on the fly
-- A way to swap between multiple bar designs
-- Better documentation
-
----
-
 Tsukihime comes with simple, but sensible defaults and features, such as **scratchpads**, **ease of switching out app shortcuts**, **various colorschemes**, **easy to switch keybinds and different visual elements** and another functionalities expected from a tiling window manager.
 
 ---
 
-### Dependencies 
-I have a script that install most dependencies for this setup. This script also will install `yay` and has a prompt for cloning my wallpapers repository. This is not guaranteed to work on every machine but the script is simple enough, it should make most of the basic functionality. You are encouraged to tinker with the script and add what you want to be installed, this is intended to work on Arch based systems, since it downloads Arch and AUR packages.
+### TODO
+- Add a better, revised list of dependencies
+- Make a new installation script (that actually works for everyone)
+- Better documentation
 
 ---
 
@@ -34,13 +25,13 @@ I have a script that install most dependencies for this setup. This script also 
 <summary><b>Programs</b></summary>
 
 ### GTK
-![gtk](src/rice-2.png)
+![image](https://github.com/tsukki9696/tsukihime/assets/127806743/0352ddd9-fdde-438a-97fc-88028eae9b41)
 
 ### Terminal
-![gtk](src/rice-1.png)
+![image](https://github.com/tsukki9696/tsukihime/assets/127806743/7c366b4d-85b9-48c6-baa6-7c3a54c22780)
 
 ### Wallpaper
-![wall](src/rice-wall.png)
+![image](https://github.com/tsukki9696/tsukihime/assets/127806743/6ddf0731-e992-4c87-a13b-cd54f4d21a51)
 
 </details>
 
