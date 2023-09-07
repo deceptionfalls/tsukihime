@@ -4,11 +4,11 @@
 This is my dotfiles repository containing my current qtile config, feel free to take inspiration from it or even use some of my configs.
 
 - **window manager**: qtile
-- **terminal**: wezterm
+- **terminal**: st
 - **text editor**: nvim
 - **file manager**: pcmanfm
 - **shell**: zsh
-- **music player**: ncmpcpp
+- **music player**: cmus
 
 ---
 
