@@ -1,0 +1,122 @@
+(deflisten literalworkspace "./scripts/workspaces.sh")
+(defpoll volumemute :interval "1s" "pamixer --get-mute")
+(defpoll volume :interval "1s" "pamixer --get-volume-human")
+(defpoll timehm :interval "60s" "date +'%H:%M'")
+(defpoll timedmy :interval "60s" "date +'%d/%m/%Y'")
+
+(defwindow bar
+  :geometry (
+             geometry
+             :x "10px"
+             :y "10px"
+             :width "1900px"
+             :height "40px"
+             :anchor "top center"
+             )
+  :reserve (struts :distance "60px" :side "top")
+  :exclusive true 
+  :monitor 0 
+  :wm-ignore false
+  (barstruct))
+
+(defwidget barstruct [] 
+  (box 
+    :class "bar"
+    :orientation "h"
+    :height "40px"
+    :width "1890px"
+    :space-evenly true
+    :vexpand false
+    (left)
+    (right)))
+
+(defwidget left[] 
+  (box
+    :class "left_widgets"
+    :orientation "h"
+    :space-evenly false 
+    :halign "start"
+    :hexpand false
+    :vexpand false
+    (home)
+    (workspaces)))
+
+(defwidget right[] 
+  (box
+    :class "right_widgets"
+    :orientation "h"
+    :space-evenly false 
+    :halign "end"
+    :hexpand false
+    :vexpand false
+    (battery)
+    (search)
+    (clock)
+    (vol)
+    (wifi)
+    (layout)))
+
+(defwidget home[] 
+  (box 
+    :class "widget"
+    (eventbox 
+      :onclick "~/.config/eww/meowayland/scripts/launch"
+      :cursor "pointer"
+      (label :text "󰋜" :class "home"))))
+
+(defwidget workspaces [] 
+  (eventbox
+    :cursor "pointer"
+    (literal :content literalworkspace)))
+
+(defwidget layout []
+  (eventbox 
+    :onclick "notify-send 'too bad I have no layouts for you'"
+    :cursor "pointer"
+    :class "widget"
+    (label :text "" :style "padding: 0px 15px 0px 10px;")))
+
+(defwidget wifi [] 
+  (eventbox 
+    :onclick "foot nmtui" 
+    :cursor "pointer"
+    (label :text "󰤨" :class "icon")))
+
+(defwidget vol [] 
+  (eventbox 
+    :onclick "pamixer --toggle-mute" 
+    :cursor "pointer"
+    :tooltip volume
+    (label :text {volumemute == "true" ? "󰖁" : "󰕾"} :class "icon")))
+
+(defwidget clock [] 
+  (box 
+    :class "clock widget" 
+    :tooltip timedmy
+    (label :text timehm :class "time")))
+
+(defwidget search []
+  (eventbox
+    :class "widget"
+    :cursor "pointer"
+    :tooltip "wofi?? ig???"
+    :onclick "wofi --show=drun -i -I"
+    (label :text "" :style "padding: 0px 18px 0px 10px; font-size: 15px;")))
+
+(defwidget battery []
+  (box 
+    :orientation "h"
+    :class "battery"
+    (overlay 
+      (scale 
+        :class {EWW_BATTERY['BAT0'].status == "Charging" ? "charging": EWW_BATTERY['BAT0'].capacity < 16 ? "dying": ""}
+        :value "${EWW_BATTERY['BAT0'].capacity}"
+        :orientation "h"
+        :max 100
+        :min 0)
+      (label 
+        :text "󱐋"
+        :visible {EWW_BATTERY['BAT0'].status == "Charging"}
+        :class "lightning"))))
+
+

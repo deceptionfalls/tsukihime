@@ -1,0 +1,89 @@
+@import './colors';
+
+* {
+    all: unset;
+    color: $white1;
+    font-size: 14px;
+    font-family: "Iosevka Nerd Font"
+}
+
+.bar {
+    background-color: $base;
+    padding: 5px;
+}
+
+tooltip {
+    background-color: $surface0;
+    color: $white1;
+}
+
+scale trough {
+    all: unset; 
+    background-color: $surface0; 
+    border-radius: 0px; 
+    min-height: 30px; 
+    min-width: 70px;
+}
+
+scale trough highlight {
+    background-color: $sky;
+    border-radius: 0px;
+}
+
+.widget {
+    padding: 5px; 
+    margin: 0px 8px;
+    border-radius: 0px; 
+    background-color: $surface0; 
+    color: $white1
+}
+
+.home {
+    color: $red; 
+    font-size: 16px;
+    padding-right: 12px;
+    padding-left: 6px;
+}
+
+.workspaces {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.workspaces label {
+    padding: 0px 2px 5px 0px;
+    margin: 0px 3px;
+}
+
+.icon {
+    color: $white1;
+    padding-right: 10px;
+    padding-left: 5px;
+    margin-right: 4px;
+    font-size: 16px;
+}
+
+.time {
+    color: $white1; 
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.battery {
+    margin: 0px 8px;
+}
+
+.charging trough highlight {
+    background-color: $green;
+}
+
+.dying trough highlight {
+    background-color: $maroon;
+}
+
+.lightning {
+    color: $base;
+    font-size: 16px;
+}
