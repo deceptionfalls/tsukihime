@@ -33,11 +33,10 @@ mod = "mod4"
 # Define your apps here to use later in keybinds
 class Apps:
     terminal = "st"
-    # Refer to your terminal emulator's way to classify sessions
     term_cmd = "st -c "
     launcher = "rofi -show drun"
     browser  = "firefox"
-    files    = "pcmanfm"
+    files    = "thunar"
     chatapp  = "discord"
     editor   = "nvim"
     photos   = "photopea"
@@ -46,9 +45,9 @@ class Apps:
 # you could map it to X86Volume keys but they dont work with my keyboard
 # so I just stick to pulsemixer
 class Music:
-    next     = "cmus-remote --next"
-    prev     = "cmus-remote --prev"
-    toggle   = "cmus-remote --pause"
+    next     = "mpc -h localhost -p 8800 next"
+    prev     = "mpc -h localhost -p 8800 prev"
+    toggle   = "mpc -h localhost -p 8800 toggle"
     volup    = "pulsemixer --change-volume +10"
     voldown  = "pulsemixer --change-volume -10"
     mute     = "pulsemixer --toggle-mute"
@@ -102,10 +101,10 @@ keys = [
         ),
 
 # Resize floating windows with Arrow keys, function down further
-    Key([mod], "Right", resize_floating_window(width=10), desc='increase width by 10'),
-    Key([mod], "Left", resize_floating_window(width=-10), desc='decrease width by 10'),
-    Key([mod], "Up", resize_floating_window(height=10), desc='increase height by 10'),
-    Key([mod], "Down", resize_floating_window(height=-10), desc='decrease height by 10'),
+    Key([mod], "Right", resize_floating_window(width=20), desc='increase width by 20'),
+    Key([mod], "Left", resize_floating_window(width=-20), desc='decrease width by 20'),
+    Key([mod], "Down", resize_floating_window(height=20), desc='increase height by 20'),
+    Key([mod], "Up", resize_floating_window(height=-20), desc='decrease height by 20'),
 
 # Window Focus (Vim keys)
     Key([mod], "k", lazy.layout.up()),
@@ -116,6 +115,7 @@ keys = [
 # Qtile Layout Actions
     Key([mod], "r", lazy.layout.reset()),
     Key([mod], "Tab", lazy.next_layout()),
+    Key([mod, "shift"], "Tab", lazy.prev_layout()),
     Key([mod, "shift"], "f", lazy.layout.flip()),
     Key([mod, "shift"], "space", lazy.window.toggle_floating()),
 
@@ -136,6 +136,7 @@ keys = [
 # Apps
     Key([mod], "w", lazy.spawn(Apps.browser)),
     Key([mod], "e", lazy.spawn(Apps.files)),
+    Key([mod], "d", lazy.spawn(Apps.chatapp)),
     Key([mod, "shift"], "return", lazy.spawn(Apps.launcher)),
 
 # Music control
@@ -150,12 +151,13 @@ keys = [
     Key([mod], "y", lazy.spawn(Music.mute)),
 
 # Screenshot
-# requires 'maim', 'slop', 'xclip'
+# requires 'maim', 'slop', 'xclip-git'
 # because flameshot takes a whole year to boot ffs
-    # screenshot whole screen
-    Key([mod], "q", lazy.spawn("maim -m 5 | xclip -selection clipboard -t image/png", shell=True)),
-    # screenshot specific window
-    Key([mod, "shift"], "q", lazy.spawn("maim -m 5 -s | xclip -selection clipboard -t image/png", shell=True)),
+    Key([mod], "q", lazy.spawn("maim -m 5 | xclip -selection clipboard -t image/png", shell=True)), # screenshot whole screen
+    Key([mod, "shift"], "q", lazy.spawn("maim -m 5 -s | xclip -selection clipboard -t image/png", shell=True)), # screenshot specific window
+
+# Reload Eww
+    Key([mod, "shift"], "t", lazy.spawn("eww open controlcenter", shell=True)), # screenshot specific window
 ]
 
 #-----------
@@ -167,11 +169,11 @@ keys = [
 groups = [
         Group("1", layout="monadtall", matches=[Match(wm_class=Apps.browser)]),   # browser
         Group("2", layout="monadtall", matches=[Match(wm_class=Apps.chatapp)]),   # discord
-        Group("3", layout="monadtall", matches=[Match(wm_class="obsidian")]),     # usually free space or another firefox tab for leisure
-        Group("4", layout="max", matches=[Match(wm_class=Apps.photos)]),          # photo editor
-        Group("5", layout="max", matches=[Match(wm_class="pcsx2-qt" "prismlauncher")]), # games
+        Group("3", layout="monadtall"),
+        Group("4", layout="monadtall"),
+        Group("5", layout="monadtall"),
+        Group("6", layout="monadtall"),
     ]
-
 # This makes our group labels change dynamically,
 # Qtile cannot make shapes like in Awesome, so we settle
 # for an unicode symbol repeated over for our current group
@@ -185,12 +187,12 @@ def setgroup():
         if index == num_groups - 1:
             continue  # Skip the last group
         if group is qtile.current_group:
-            group.label = "󰣐"  # Currently focused group
+            group.label = "󰹞󰹞󰹞󰹞󰹞󰹞󰹞󰹞󰹞"  # Currently focused group
         else:
             if group.windows:
-                group.label = ""  # Unfocused group with windows
+                group.label = "󰹞󰹞󰹞󰹞"  # Unfocused group with windows
             else:
-                group.label = "󰧞"  # Unfocused empty group
+                group.label = "󰹞󰹞󰹞󰹞"  # Unfocused empty group
 
 # Add group specific keybindings
 for i in groups:
@@ -207,7 +209,7 @@ groups.append(ScratchPad("scratchpad", [
     DropDown("term2", Apps.term_cmd+"scratch2", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
     DropDown("ranger", Apps.term_cmd+"ranger -e ranger", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
     DropDown("volume", Apps.term_cmd+"volume -e alsamixer", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
-    DropDown("song", Apps.term_cmd+"song -e cmus", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
+    DropDown("song", Apps.term_cmd+"song -e ncmpcpp", width=0.8, height=0.8, x=0.1, y=0.1, opacity=1),
 ]))
 
 # Scratchpad keybindings
@@ -228,7 +230,7 @@ keys.extend([
 # than to type every single individual hex code, this also allows for possible
 # dynamic theme switching
 layout_theme = {
-    "margin":8,
+    "margin": 8,
     "border_width": 16,
     # --------------
     # Triple Borders
@@ -238,17 +240,28 @@ layout_theme = {
     # certain thickness. It also does not let us reference colors from colors.py
     "border_focus": ["161616", "161616", "161616", "161616", "393939", "161616", "161616", "161616", "161616", "161616"],
     "border_normal": ["161616", "161616", "161616", "161616", "262626", "161616", "161616", "161616", "161616", "161616"],
-    # "border_focus":colors[5], # normal borders for normal people
-    # "border_normal":colors[3],
+    # "border_focus": colors[5], # normal borders for normal people
+    # "border_normal": colors[3],
 }
 
 # Consult the Qtile standard configuration to see other layout options
 # these are what work for me, a simple master and stack and a max layout for games
-layouts = [ layout.MonadTall(**layout_theme), layout.Max(**layout_theme) ]
+layouts = [ layout.MonadTall(**layout_theme), layout.MonadWide(**layout_theme), layout.Max(**layout_theme) ]
 
 #-----------
 # Bar
 #-----------
+
+# Functions
+def startmenu():
+    qtile.cmd_spawn("rofi -show drun")
+
+def controlcenter():
+    qtile.cmd_spawn("eww open controlcenter")
+
+# Parsing : remove all text.
+def txt_remove(text):
+    return ""
 
 # Here we reference our colors.py file for using our chosen colorscheme,
 # remember to tweak values accordingly, I can't promise everything will look
@@ -258,35 +271,92 @@ layouts = [ layout.MonadTall(**layout_theme), layout.Max(**layout_theme) ]
 # Our default parameters for the widgets in our bar
 # Append parameters here so you can spare yourself from repetition
 widget_defaults = dict(
-    font="JetBrains Mono Bold",
+    font="Jetbrains Mono Bold",
     fontsize=14,
     background=colors[0],
-    foreground=colors[1],
+    foreground=colors[2],
 )
 
 extension_defaults = widget_defaults.copy()
 
-# Our widgets
-# Refer the qtile wiki for other widget options both in the builtin widgets and in the qtile-extras repo
-# Tweak colors according to your selected colorscheme, cant promise everything looks perfect with no tweaks
+# The bar
+# i am so sorry for everyone coming into this mess
 def get_widgets():
     widgets = [
+        widget.Spacer(length=3),
+        widget.TextBox(
+            text='󰋜',
+            foreground=colors[7],
+            background=colors[3],
+            mouse_callbacks={"Button1": startmenu},
+            ),
+        widget.Spacer(length=5, background="#262626", mouse_callbacks={"Button1": startmenu}),
         widget.Spacer(length=5),
         widget.GroupBox(
             highlight_method='text', # makes the highlights just change the group name color
             inactive=colors[1],
-            active=colors[5],
-            this_current_screen_border=colors[7],
+            active=colors[11],
+            background=colors[3],
+            this_current_screen_border=colors[5],
+            other_current_screen_border=colors[7],
+            spacing=0,
+            padding=1,
             urgent_border=colors[0], # make it the same as the background for no ugly borders
-        ),
-        widget.CurrentLayoutIcon(
-            use_mask=True, # needs to be on for the icon to use our foreground
-            scale=0.5,
-            padding=5, # Don't delete this or the bar will go transparent, for some reason
-        ),
+            ),
+        widget.Spacer(length=5, background="#262626"),
         widget.Spacer(),
-        widget.Clock(format="%b %d, %I:%M %p"), # Month, day of the month, current time
-        widget.Spacer(length=10),
+        widget.WidgetBox(widgets=[
+            widget.Systray(),
+            ],
+            text_closed=' ',
+            text_open=' ',
+            ),
+        widget.Spacer(length=5),
+        widget.Battery(
+            foreground=colors[0],
+            background=colors[8],
+            low_background=colors[7],
+            battery="BAT1",
+            show_short_text=False,
+            charge_char='  󱐋  ',
+            full_char='  󱐋  ',
+            discharge_char='  󱐌  ',
+            empty_char='  󱐌  ',
+            unknown_char='  ?  ',
+            format='{char}',
+            ),
+        widget.Spacer(length=5),
+        widget.TextBox(
+            text='',
+            background=colors[3],
+            mouse_callbacks={"Button1": controlcenter},
+            ),
+        widget.Spacer(length=5, background=colors[3]),
+        widget.Spacer(length=5),
+        widget.Clock(
+            format="%I:%M",
+            background=colors[3],
+            padding=8,
+            ),
+        widget.Volume(
+            fmt='󰕾',
+            scroll=True,
+            step=10,
+            padding=7,
+            ),
+        widget.Wlan(
+            format='󰤨',
+            disconnected_message='󰤭',
+            padding=7,
+            ),
+        widget.Spacer(length=5),
+        widget.CurrentLayoutIcon(
+            use_mask=True,
+            scale=0.6,
+            padding=5,
+            background=colors[3],
+            ),
+        widget.Spacer(length=3),
         ]
     return widgets
 
@@ -295,7 +365,9 @@ screens = [
     Screen(
         top=bar.Bar(
             get_widgets(),
-            30,
+            23,
+            border_color="#161616",
+            border_width=5,
             margin=8,
        ),
     ),
@@ -334,7 +406,7 @@ floating_layout = layout.Floating(float_rules=[
 ], fullscreen_border_width = 0, border_width = 0)
 
 def wallpaper():
-    path = '~/Pictures/Wallpapers/Uncategorized/flower-bw.png'
+    path = '~/Pictures/Wallpapers/Uncategorized/sakura-bw.png' # cool beans
     os.system('feh --bg-scale ' + path)
 
 # Autostart script, for starting important apps, refer to autostart.sh
