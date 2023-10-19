@@ -1,5 +1,7 @@
 ![image](https://github.com/tsukki9696/tsukihime/assets/127806743/3705b511-b8c4-4700-93b5-2e06f5b31aed)
 
+> _WARNING_: this repository will soon be archived, as I no longer use qtile or some of these apps, my regular dotfiles will be stored in another repository along with my AwesomeWM dotfiles which I plan to upload soon.
+
 This is my dotfiles repository containing my current qtile config, feel free to take inspiration from it or even use some of my configs.
 
 - **window manager**: qtile
